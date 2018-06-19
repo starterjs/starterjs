@@ -1,0 +1,25 @@
+cd Documents\GitHub\oficina-jogo-web
+
+jsdoc scripts -r  README.md
+
+
+__________________ gerar .mim.js
+https://jscompress.com/
+
+ordem:
+
+elements/GameObject.js
+elements/Background.js
+elements/Levels.js	 
+behaviors/Bullet.js   
+managers/ManagerStorage.js
+managers/ManagerLoader.js
+managers/ManagerKeyboard.js
+managers/ManagerLevel.js
+scripts/gui/Text.js
+scripts/gui/InputText.js
+scripts/forms/Geometric.js
+scripts/forms/Rect.js
+scripts/forms/Triangle.js
+external/Trutle.js
+scripts/StarterEngine.js
