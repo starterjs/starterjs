@@ -18,7 +18,6 @@ StarterEngine = function (w,h) {
         this.loader = new ManagerLoader(function(){
             this.gameReady();
             this.startGame();
-
         }.bind(this));
 
         this.teclado = new ManagerInputs();
@@ -67,11 +66,11 @@ StarterEngine.prototype.beginLoad =function () {
  */
 StarterEngine.prototype.startGame =function () {
     this.mlevel.currentLevel = 0;
-    if( (this.mlevel.levels.length) > 0 && (this.mlevel.currentLevel < this.mlevel.levels.length)) {
+    if((this.mlevel.levels.length) > 0 && (this.mlevel.currentLevel < this.mlevel.levels.length)) {
         this.mlevel.levels[this.mlevel.currentLevel].startFunction();
         this.loopgame(ctx);
     }else{
-        console.warn("Você precisa adicionar ao menos um Level!")
+        console.error("Você precisa adicionar ao menos um Level!")
     }
 }
 

@@ -14,58 +14,48 @@
       <file leaf-file-name="myturtle.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/examples/turtle/myturtle.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="6" lean-forward="false" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+            <state relative-caret-position="340">
+              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Trutle.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/scripts/external/Trutle.js">
+      <file leaf-file-name="myanimation.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/examples/geometrics/myanimation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1462">
-              <caret line="86" column="49" lean-forward="true" selection-start-line="86" selection-start-column="49" selection-end-line="86" selection-end-column="49" />
+            <state relative-caret-position="272">
+              <caret line="16" column="22" lean-forward="true" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/examples/turtle/index.html">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="518">
-              <caret line="32" column="45" lean-forward="true" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
+            <state relative-caret-position="314">
+              <caret line="73" column="12" lean-forward="false" selection-start-line="73" selection-start-column="12" selection-end-line="73" selection-end-column="12" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ManagerLevel.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/managers/ManagerLevel.js">
+      <file leaf-file-name="Rect.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/forms/Rect.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1309">
-              <caret line="77" column="42" lean-forward="true" selection-start-line="77" selection-start-column="42" selection-end-line="77" selection-end-column="42" />
+            <state relative-caret-position="39">
+              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameObject.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/abstracts/GameObject.js">
+      <file leaf-file-name="Levels.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/elements/Levels.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="58" column="49" lean-forward="true" selection-start-line="57" selection-start-column="4" selection-end-line="58" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StarterEngine.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/StarterEngine.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="423">
-              <caret line="119" column="11" lean-forward="false" selection-start-line="119" selection-start-column="11" selection-end-line="119" selection-end-column="11" />
+            <state relative-caret-position="255">
+              <caret line="42" column="33" lean-forward="true" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -88,6 +78,8 @@
       <find>beginPath</find>
       <find>moveTo</find>
       <find>Begin</find>
+      <find>callback</find>
+      <find>startFunction</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -96,9 +88,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/mygame.js" />
-        <option value="$PROJECT_DIR$/scripts/managers/ManagerInputs.js" />
-        <option value="$PROJECT_DIR$/scripts/behaviors/Platform.js" />
         <option value="$PROJECT_DIR$/scripts/managers/ManagerStorage.js" />
         <option value="$PROJECT_DIR$/comand line.txt" />
         <option value="$PROJECT_DIR$/scripts/forms/Form.js" />
@@ -115,9 +104,7 @@
         <option value="$PROJECT_DIR$/style.css" />
         <option value="$PROJECT_DIR$/scripts/elements/Audio.js" />
         <option value="$PROJECT_DIR$/scripts/elements/SoundList.js" />
-        <option value="$PROJECT_DIR$/scripts/managers/ManagerLoader.js" />
         <option value="$PROJECT_DIR$/scripts/gui/Score.js" />
-        <option value="$PROJECT_DIR$/scripts/elements/Levels.js" />
         <option value="$PROJECT_DIR$/scripts/gui/Button.js" />
         <option value="$PROJECT_DIR$/scripts/managers/ManagerMouse.js" />
         <option value="$PROJECT_DIR$/examples/spacewar/Enemy.js" />
@@ -132,21 +119,26 @@
         <option value="$PROJECT_DIR$/scripts/gui/Text.js" />
         <option value="$PROJECT_DIR$/scripts/gui/InputText.js" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/scripts/managers/ManagerKeyboard.js" />
         <option value="$PROJECT_DIR$/examples/testes/index.html" />
         <option value="$PROJECT_DIR$/scripts/elements/GameObject.js" />
-        <option value="$PROJECT_DIR$/examples/behavior_car/mygame.js" />
         <option value="$PROJECT_DIR$/scripts/behaviors/Car.js" />
         <option value="$PROJECT_DIR$/examples/spacewar/mygame.js" />
         <option value="$PROJECT_DIR$/scripts/elements/Animation" />
         <option value="$PROJECT_DIR$/scripts/elements/Sprite.js" />
         <option value="$PROJECT_DIR$/examples/testes/mygame.js" />
-        <option value="$PROJECT_DIR$/examples/turtle/myturtle.js" />
         <option value="$PROJECT_DIR$/scripts/external/Trutle.js" />
-        <option value="$PROJECT_DIR$/scripts/StarterEngine.js" />
         <option value="$PROJECT_DIR$/examples/behavior_car/index.html" />
         <option value="$PROJECT_DIR$/examples/turtle/index.html" />
+        <option value="$PROJECT_DIR$/examples/turtle/myturtle.js" />
+        <option value="$PROJECT_DIR$/examples/geometrics/index.html" />
+        <option value="$PROJECT_DIR$/scripts/managers/ManagerLoader.js" />
+        <option value="$PROJECT_DIR$/scripts/StarterEngine.js" />
+        <option value="$PROJECT_DIR$/scripts/elements/Levels.js" />
+        <option value="$PROJECT_DIR$/examples/behavior_car/mygame.js" />
+        <option value="$PROJECT_DIR$/scripts/abstracts/GameObject.js" />
+        <option value="$PROJECT_DIR$/examples/geometrics/myanimation.js" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -192,53 +184,6 @@
               <item name="starterjs" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="examples" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
-            <path>
-              <item name="starterjs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="starterjs" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="examples" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="behavior_car" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="starterjs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="starterjs" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="examples" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="turtle" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="starterjs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="starterjs" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="scripts" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="starterjs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="starterjs" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="scripts" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="abstracts" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="starterjs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="starterjs" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="scripts" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="behaviors" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="starterjs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="starterjs" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="scripts" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="elements" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="starterjs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="starterjs" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="scripts" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="external" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="starterjs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="starterjs" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="scripts" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="forms" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -254,11 +199,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\hiper\Documents\GitHub\starterjs\examples\geometrics" />
       <recent name="C:\Users\hiper\Documents\GitHub\starterjs\examples" />
       <recent name="C:\Users\hiper\Documents\GitHub\starterjs\examples\testes\assets" />
       <recent name="C:\Users\hiper\Documents\GitHub\starterjs\homepage\img" />
       <recent name="C:\Users\hiper\Documents\GitHub\starterjs\homepage" />
-      <recent name="C:\Users\hiper\Documents\GitHub\starterjs\examples\spacewar\assets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\hiper\Documents\GitHub\starterjs\scripts\abstracts" />
@@ -313,12 +258,12 @@
       <workItem from="1526860718493" duration="1189000" />
       <workItem from="1526897075474" duration="10161000" />
       <workItem from="1528168326731" duration="10782000" />
-      <workItem from="1529980216379" duration="2986000" />
+      <workItem from="1529980216379" duration="5947000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="169239000" />
+    <option name="totallyTimeSpent" value="172200000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1040" height="744" extended-state="6" />
@@ -356,9 +301,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa0.491/p5.turtle.js" />
-    <entry file="file://$PROJECT_DIR$/examples/turle.js" />
-    <entry file="file://$PROJECT_DIR$/examples/mygame.js" />
     <entry file="file://$PROJECT_DIR$/examples/Enemy.js" />
     <entry file="file://$PROJECT_DIR$/examples/myturtle.js" />
     <entry file="file://$PROJECT_DIR$/examples/turtle.html" />
@@ -399,13 +341,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/elements/SoundList.js" />
-    <entry file="file://$PROJECT_DIR$/scripts/managers/ManagerLoader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-29">
-          <caret line="137" column="0" lean-forward="true" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/gui/Score.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -458,14 +393,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/forms/Rect.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/forms/Triangle.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
@@ -506,25 +433,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="117" column="14" lean-forward="true" selection-start-line="117" selection-start-column="14" selection-end-line="117" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/managers/ManagerKeyboard.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1683">
           <caret line="99" column="25" lean-forward="false" selection-start-line="99" selection-start-column="25" selection-end-line="99" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/elements/Levels.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="30" lean-forward="false" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -574,16 +486,8 @@
         <state relative-caret-position="572">
           <caret line="40" column="42" lean-forward="false" selection-start-line="40" selection-start-column="42" selection-end-line="40" selection-end-column="42" />
           <folding>
-            <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/abstracts/Geometric.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="30" column="3" lean-forward="true" selection-start-line="30" selection-start-column="3" selection-end-line="30" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -619,14 +523,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/behavior_car/mygame.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="27" column="19" lean-forward="false" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/gui/Text.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
@@ -643,26 +539,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/turtle/myturtle.js">
+    <entry file="file://$PROJECT_DIR$/examples/behavior_car/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="6" lean-forward="false" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/StarterEngine.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="119" column="11" lean-forward="false" selection-start-line="119" selection-start-column="11" selection-end-line="119" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/abstracts/GameObject.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="58" column="49" lean-forward="true" selection-start-line="57" selection-start-column="4" selection-end-line="58" selection-end-column="49" />
+        <state relative-caret-position="187">
+          <caret line="35" column="3" lean-forward="false" selection-start-line="35" selection-start-column="3" selection-end-line="35" selection-end-column="3" />
           <folding />
         </state>
       </provider>
@@ -671,14 +551,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1309">
           <caret line="77" column="42" lean-forward="true" selection-start-line="77" selection-start-column="42" selection-end-line="77" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/behavior_car/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="35" column="3" lean-forward="false" selection-start-line="35" selection-start-column="3" selection-end-line="35" selection-end-column="3" />
           <folding />
         </state>
       </provider>
@@ -695,6 +567,102 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1462">
           <caret line="86" column="49" lean-forward="true" selection-start-line="86" selection-start-column="49" selection-end-line="86" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/geometrics/resource/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/managers/ManagerLoader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-204">
+          <caret line="63" column="23" lean-forward="false" selection-start-line="63" selection-start-column="23" selection-end-line="63" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/abstracts/Geometric.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="19" lean-forward="true" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/behavior_car/mygame.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="35" lean-forward="true" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/abstracts/GameObject.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="80" column="27" lean-forward="false" selection-start-line="80" selection-start-column="27" selection-end-line="80" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/geometrics/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="39" column="28" lean-forward="false" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/turtle/myturtle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/StarterEngine.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="82" column="27" lean-forward="true" selection-start-line="82" selection-start-column="27" selection-end-line="82" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/forms/Rect.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="39">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/elements/Levels.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="42" column="33" lean-forward="true" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/geometrics/myanimation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="22" lean-forward="true" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="73" column="12" lean-forward="false" selection-start-line="73" selection-start-column="12" selection-end-line="73" selection-end-column="12" />
           <folding />
         </state>
       </provider>

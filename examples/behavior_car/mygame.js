@@ -15,16 +15,11 @@ se.gameReady = function() {
     var menu = new Levels();
     menu.setFunctionStart(setMenu);
 
-    this.mlevel.addLevel(menu)
- 
-
 }
 
 
 function setMenu(){
 
-
     var bg = new  Background("background",0,0,canvas.height, canvas.width);
 	var car = new Car("buttonplay", 200, 200);
-
 }

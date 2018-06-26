@@ -60,6 +60,13 @@ ManagerLoader.prototype.addAudio = function (name, resource) {
  */
 ManagerLoader.prototype.loading = function( ){
 
+    if(this.assetsList.length == 0 ) {
+        this.print(0.99);
+        setTimeout(this.callback, 2000);
+        return;
+    }
+
+
     for(var i = 0; i < this.assetsList.length; i++){
 
         //se for do tipo imagem
@@ -112,13 +119,12 @@ ManagerLoader.prototype.loading = function( ){
                 audio = new Howl({ src: [this.starterfolder+this.assetsList[i][1]], onload: onload});
 
             this.assetsListLoaded.push(audio);
-
-
         }
-			
-
-
     }
+
+
+
+
 }
 
 /**
@@ -143,9 +149,13 @@ ManagerLoader.prototype.getAssets = function(name){
  * Imprime o carregamento na tela inicial
  * @method
  */
-ManagerLoader.prototype.print = function(){
+ManagerLoader.prototype.print = function(porcent){
+    var porcentload = 0;
 
-    var porcentload = ((this.checkAssetsList * 100)/this.assetsList.length)/100;
+    if(porcent!=undefined)
+        porcentload = porcent;
+    else
+        porcentload = ((this.checkAssetsList * 100)/this.assetsList.length)/100;
 
     if(porcentload==1)
         porcentload = 0.99;
