@@ -1,0 +1,26 @@
+/**
+* Representa um Animation
+ * @todo
+* @param animations
+* @param {array} - array of animations
+* @constructor
+*/
+function Animation(sprites) {
+
+    this.sprites = sprites;
+    this.currentsprite = 0;
+    this.timesprite = 0;
+}
+
+
+Animation.prototype.nextSprite = function () {
+
+}
+
+Animation.prototype.priorSprite = function () {
+
+}
+
+Animation.prototype.setInterval = function () {
+
+}

@@ -11,6 +11,8 @@ function Levels(objects) {
 
     this.clean = true;
 
+    se.mlevel.addLevel(this);
+
 }
 
 /**

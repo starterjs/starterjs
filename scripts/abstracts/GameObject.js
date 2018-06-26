@@ -55,6 +55,11 @@ function GameObject(sprite, x, y, classename, w, h, r, z) {
     this.linklevel = se.mlevel.currentLevel;
 
 
+    //self add in currente level (test)
+    if(se.mlevel.getCurrentLevel()!= undefined)
+        se.mlevel.getCurrentLevel().addObjects(this);
+    else
+        console.warn("Impossível inserir objeto no nível atual.");
 }
 
 /**
@@ -72,13 +77,22 @@ GameObject.prototype.print = function() {
 }
 
 /**
- * Configura a posição do objeto
- * @param {int} x - Coordenada x do objeto
- * @param {int} y - Coordenada y do objeto
+ * Define a rotação do objeto
+ * @param {int} r - rotação
  */
 GameObject.prototype.setRotate = function (r) {
     this.r = r;
 }
+
+
+/**
+ * Retorna a rotação do objeto
+ * @return {int} r - rotação
+ */
+GameObject.prototype.getRotate = function () {
+    return this.r;
+}
+
 
 
 /**

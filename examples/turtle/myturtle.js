@@ -19,9 +19,4 @@ function setTurtle(){
     }
 
 
-
-    this.addObjects(t);
-
-
-
 }
