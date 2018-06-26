@@ -11,7 +11,6 @@
 function Car(sprite, x, y, h, w) {
     GameObject.call(this, sprite, x,y,"car", h,w);
 
-
     this.buttonup = null;
     this.buttondown = null;
     this.buttonleft = null;
@@ -21,6 +20,8 @@ function Car(sprite, x, y, h, w) {
     this.desaceleration = 0.05;
     this.maxSpeed = 4;
     this.speed = 1;
+
+    this.setDefaultControll();
 
 }
 

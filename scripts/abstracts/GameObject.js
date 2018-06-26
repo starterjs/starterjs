@@ -55,6 +55,8 @@ function GameObject(sprite, x, y, classename, w, h, r, z) {
     this.linklevel = se.mlevel.currentLevel;
 
 
+    //self add in currente level (test)
+    se.mlevel.getCurrentLevel().addObjects(this);
 }
 
 /**

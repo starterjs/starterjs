@@ -40,11 +40,11 @@ se.gameReady = function() {
 function setLevel1() {
     bg = new Background("background",0,0,canvas.height, canvas.width);
 
-    this.addObjects(bg);
-    this.addObjects(new Player("shipblue", 300, 600,"player"));
-    this.addObjects( new Enemy("enemyred", 250, 0, "enemy"));
-    this.addObjects(new Enemy("enemyred", 500, 0, "enemy"));
-    this.addObjects(new Score("score","guiscore",600,20));
+    player = new Player("shipblue", 300, 600,"player");
+
+    enemy =  new Enemy("enemyred", 250, 0, "enemy");
+    enemy2 = new Enemy("enemyred", 500, 0, "enemy");
+    score = new Score("score","guiscore",600,20);
 }
 
 
@@ -83,12 +83,4 @@ function setMenu(){
     input_nameplayer.setMaxSize(300);
     input_nameplayer.setText(se.mlevel.nameplayer);
 
-    this.addObjects(bg);
-    this.addObjects(logo);
-    this.addObjects(play);
-    this.addObjects(ranking);
-    this.addObjects(input_nameplayer);
-    this.addObjects(topscore1);
-    this.addObjects(topscore2);
-    this.addObjects(topscore3);
 }

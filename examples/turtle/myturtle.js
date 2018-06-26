@@ -20,7 +20,7 @@ function setTurtle(){
 
 
 
-    this.addObjects(t);
+    //this.addObjects(t);
 
 
 

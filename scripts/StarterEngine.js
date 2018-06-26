@@ -103,8 +103,6 @@ StarterEngine.prototype.setResources =function () {};
 
 StarterEngine.prototype.startTurtle = function () {
 
-
-
     this.setResources = function () {
         //Add lista resource
         this.loader.addStarterResource("turtle", "turtle.png", "image");
@@ -119,7 +117,7 @@ StarterEngine.prototype.startTurtle = function () {
         var trutlelvl = new Levels();
         trutlelvl.setFunctionStart(setTurtle);
         //trutlelvl.clean = false;
-        mlevel.addLevel(trutlelvl);
+        se.mlevel.addLevel(trutlelvl);
 
     }
 
