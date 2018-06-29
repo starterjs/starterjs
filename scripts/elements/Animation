@@ -1,6 +1,6 @@
 /**
-* Representa um Animation
- * @todo
+* Representa uma sequência de imagens para animação
+ * @todo implementar classe
 * @param animations
 * @param {array} - array of animations
 * @constructor

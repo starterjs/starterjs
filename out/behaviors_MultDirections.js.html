@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: behaviors/Car.js</title>
+    <title>JSDoc: Source: behaviors/MultDirections.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: behaviors/Car.js</h1>
+    <h1 class="page-title">Source: behaviors/MultDirections.js</h1>
 
     
 
@@ -27,38 +27,39 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * Representa um carro top view
+ * Representa um elemento multidirecional
  * @param {string} sprite - Nome do sprite do botão
  * @param {int} x -  Coordenada x do texto
  * @param {int} y - Coordenada y do texto
  * @param {int} w - Largura do sprite
  * @param {int} h - Altura do sprite
  * @constructor
+ * @todo implementar o turnDown e Up além de transição automática
  */
-function Car(sprite, x, y, h, w) {
-    GameObject.call(this, sprite, x,y,"car", h,w);
+function MultDirections(sprite, x, y, h, w) {
+
+    GameObject.call(this, sprite, x,y,"mult", h,w);
 
     this.buttonup = null;
     this.buttondown = null;
     this.buttonleft = null;
     this.buttonright = null;
 
-    this.aceleration = 0.1;
+    this.aceleration = 0.05;
     this.desaceleration = 0.05;
-    this.maxSpeed = 4;
+    this.maxSpeed = 2;
     this.speed = 1;
 
     this.setDefaultControll();
 
 }
 
-Car.prototype = Object.create(GameObject.prototype);
+MultDirections.prototype = Object.create(GameObject.prototype);
 
-/**
- * Imprime o objeto Car
- * @override
- */
-Car.prototype.print = function (){
+/*
+*
+*/
+MultDirections.prototype.print = function (){
 
     ctx.save();
 
@@ -79,52 +80,66 @@ Car.prototype.print = function (){
 }
 
 
-/**
- * Configura o Controle
- * @param up - tecla para o comando up
- * @param down - tecla para o comando down
- * @param left - tecla para o comando left
- * @param right - tecla para o comando rigth
- */
-Car.prototype.setControll = function (up, down, left, right) {
+MultDirections.prototype.setControll = function (up, down, left, right) {
     this.buttondown = down;
     this.buttonleft = left;
     this.buttonright = right;
     this.buttonup = up;
 }
 
-/**
- * Configura o Controle como padrão
- */
-Car.prototype.setDefaultControll = function () {
+MultDirections.prototype.setDefaultControll = function () {
     this.buttondown = "DOWN";
     this.buttonleft = "LEFT";
     this.buttonright = "RIGHT";
     this.buttonup = "UP";
 }
 
-/**
- * Update do objeto Car
- * @override
- */
-Car.prototype.update = function () {
+MultDirections.prototype.update = function () {
+
 
     this.x += this.speed * Math.cos(this.r * Math.PI / 180);
     this.y += this.speed * Math.sin(this.r * Math.PI / 180);
 
-    if( se.teclado.getKey( this.buttonup ) ){
-        this.moveUp();
+    //modificar
+    //deve ser um if aninhado
+    /*se up{
+       se !rigth e !left{
+          this.moveUp();
+       }else rigth{
+           this.turnToRight();
+       }else left{
+           this.turnToLeft();
+       }
+    }
+    */
+    if( se.teclado.getKey( this.buttonup ) ) {
+
+        if (!se.teclado.getKey(this.buttonright) &amp;&amp; !se.teclado.getKey(this.buttonleft)) {
+            this.moveUp();
+        } else if (se.teclado.getKey(this.buttonright)) {
+            this.turnToRight();
+        }else{
+            this.turnToLetf();
+        }
     }
 
     if(se.teclado.getKey(this.buttondown)){
-        this.moveDown();
+        if (!se.teclado.getKey(this.buttonright) &amp;&amp; !se.teclado.getKey(this.buttonleft)) {
+            this.moveDown();
+        } else if (se.teclado.getKey(this.buttonright)) {
+            this.turnToRight();
+        }else{
+            this.turnToLetf();
+        }
+
+
     }
 
-    if(se.teclado.getKey(this.buttonright)){
+    if(se.teclado.getKey(this.buttonright) &amp;&amp; !se.teclado.getKey(this.buttondown) &amp;&amp; !se.teclado.getKey(this.buttonup)){
         this.moveRight()
     }
 
-    if(se.teclado.getKey(this.buttonleft)){
+    if(se.teclado.getKey(this.buttonleft) &amp;&amp; !se.teclado.getKey(this.buttondown) &amp;&amp; !se.teclado.getKey(this.buttonup)){
         this.moveLeft();
     }
 
@@ -140,63 +155,85 @@ Car.prototype.update = function () {
 
 };
 
-/**
- * Move o carro da direção cima
- */
-Car.prototype.moveUp = function () {
 
-   if(Math.abs( this.speed ) &lt; this.maxSpeed) {
-       if (this.speed >= 0)
-           this.speed += this.aceleration;
-       if (this.speed &lt; 0)
-           this.speed -= this.aceleration;
-   }
-    if(this.speed &lt; 0)
-        this.speed = -this.speed;
+MultDirections.prototype.moveUp = function () {
 
-}
-
-
-/**
- * Move o carro da direção baixo
- */
-
-Car.prototype.moveDown = function () {
+    if(this.getRotate() != 270)
+        this.setRotate(270);
 
     if(Math.abs( this.speed ) &lt; this.maxSpeed) {
-        if(this.speed >= 0)
-            this.speed += this.aceleration;
-        if(this.speed &lt; 0)
-            this.speed -= this.aceleration;
+        this.speed += this.aceleration;
+    }
+}
+
+MultDirections.prototype.moveDown = function () {
+
+    if(this.getRotate() != 90)
+        this.setRotate(90);
+
+    if(Math.abs( this.speed ) &lt; this.maxSpeed) {
+        this.speed += this.aceleration;
+    }
+}
+
+
+MultDirections.prototype.moveLeft = function () {
+
+    if(this.getRotate() != 180)
+        this.setRotate(180);
+
+
+    if(Math.abs( this.speed ) &lt; this.maxSpeed) {
+        this.speed += this.aceleration;
+    }
+}
+
+MultDirections.prototype.moveRight = function () {
+
+    if(this.getRotate() != 360)
+        this.setRotate(360);
+
+    if(Math.abs( this.speed ) &lt; this.maxSpeed) {
+        this.speed += this.aceleration;
+    }
+}
+
+
+MultDirections.prototype.turnToRight = function () {
+
+    if((this.getRotate() >= 270) &amp;&amp; (this.getRotate() &lt; 325) ) {
+        this.setRotate(this.getRotate() + 1);
+    }else if((this.getRotate() &lt;= 90) &amp;&amp; (this.getRotate() > 45) ) {
+        this.setRotate(this.getRotate() - 1);
     }
 
-    if(this.speed > 0)
-        this.speed = -this.speed;
+};
 
+MultDirections.prototype.turnToLetf = function () {
+
+    console.log("turn" + this.getRotate())
+    if( (this.getRotate() &lt;= 270) &amp;&amp; (this.getRotate() > 235) ){
+        this.setRotate(this.getRotate()-1);
+    }else if( (this.getRotate() >= 90) &amp;&amp; (this.getRotate() &lt; 135) ) {
+        this.setRotate(this.getRotate() + 1);
+    }
+
+};
+
+
+/**
+ * @todo implementar método
+ */
+MultDirections.prototype.turnToUp = function () {
+  return null;
 }
 
 
 /**
- * Move o carro da direção esquerda
+ * @todo implementar método
  */
-
-Car.prototype.moveLeft = function () {
-    if( se.teclado.getKey( this.buttonup ))
-        this.r -=1;
-    else if( se.teclado.getKey( this.buttondown ))
-        this.r +=1;
-}
-
-
-
-/**
- * Move o carro da direção direita
- */
-Car.prototype.moveRight = function () {
-    if( se.teclado.getKey( this.buttonup ))
-        this.r +=1;
-    else if( se.teclado.getKey( this.buttondown ))
-        this.r -=1;
+MultDirections.prototype.turnToDown = function () {
+return null;
 }</code></pre>
         </article>
     </section>

@@ -28,7 +28,6 @@
         <article>
             <pre class="prettyprint source linenums"><code>/**
  * Representa um elemento dragdrop
- * @todo implementar essa classe
  * @param {string} sprite - Nome do sprite do botão
  * @param {int} x -  Coordenada x do texto
  * @param {int} y - Coordenada y do texto
@@ -36,9 +35,73 @@
  * @param {int} h - Altura do sprite
  * @constructor
  */
-function DragDrop(sprite, x, y, h, w) {
+function DragDrop(sprite, x, y, callback, w, h){
+    this.classename = "dragdrop";
+    GameObject.call(this, sprite, x, y, "dragdrop", h,w);
+    if(callback!= undefined)
+        this.targetFunction = callback;
+    else
+        this.targetFunction = function (){ console.warn("esse objeto não possui uma targetFunction!")};
 
-}</code></pre>
+    this.dragdroped = false;
+    this.xoffset = 0;
+    this.yoffset = 0;
+}
+
+
+DragDrop.prototype = Object.create(GameObject.prototype);
+
+
+DragDrop.prototype.print = function(){
+
+    if(this.dragdroped){
+        var alfa = ctx.globalAlpha;
+        ctx.globalAlpha = 0.4;
+        this.x = se.mmouse.getMouseX()+ this.xoffset;
+        this.y = se.mmouse.getMouseY()+ this.yoffset;
+        ctx.drawImage(this.sprite, this.x , this.y , this.w, this.h);
+        ctx.globalAlpha = alfa;
+    }else{
+        ctx.drawImage(this.sprite, this.x , this.y , this.w, this.h);
+    }
+}
+
+/**
+ * Controla o modo dragdrop, conforme o clique do mouse
+ * @method
+ */
+DragDrop.prototype.click = function(){
+
+    if(this.dragdroped){
+        this.dragdroped  = false;
+        this.xoffset = 0;
+        this.yoffset = 0;
+
+    }else{
+        //
+        this.dragdroped = true;
+        this.xoffset = this.x - se.mmouse.getMouseX();
+        this.yoffset = this.y - se.mmouse.getMouseY();
+    }
+
+
+}
+
+/* Função alvo do dragdrop, chamada por algum evento
+* @method
+*/
+DragDrop.prototype.target = function(){
+    this.targetFunction();
+}
+
+/* Atribue a função à função alvo do dragdrop
+* @method
+* @param {function} fn - função alvo
+*/
+DragDrop.prototype.setTarget = function(fn){
+    this.targetFunction = fn;
+}
+</code></pre>
         </article>
     </section>
 
@@ -48,13 +111,13 @@ function DragDrop(sprite, x, y, h, w) {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Background.html">Background</a></li><li><a href="Bullet.html">Bullet</a></li><li><a href="Button.html">Button</a></li><li><a href="Car.html">Car</a></li><li><a href="Circle.html">Circle</a></li><li><a href="DragDrop.html">DragDrop</a></li><li><a href="GameObject.html">GameObject</a></li><li><a href="Geometric.html">Geometric</a></li><li><a href="InputText.html">InputText</a></li><li><a href="Levels.html">Levels</a></li><li><a href="ManagerInputs.html">ManagerInputs</a></li><li><a href="ManagerLevel.html">ManagerLevel</a></li><li><a href="ManagerLoader.html">ManagerLoader</a></li><li><a href="ManagerStorage.html">ManagerStorage</a></li><li><a href="Plaftorm.html">Plaftorm</a></li><li><a href="Rect.html">Rect</a></li><li><a href="StarterEngine.html">StarterEngine</a></li><li><a href="Text.html">Text</a></li><li><a href="Triangle.html">Triangle</a></li><li><a href="Turtle.html">Turtle</a></li></ul><h3>Global</h3><ul><li><a href="global.html#black">black</a></li><li><a href="global.html#blue">blue</a></li><li><a href="global.html#cian">cian</a></li><li><a href="global.html#gray">gray</a></li><li><a href="global.html#green">green</a></li><li><a href="global.html#orange">orange</a></li><li><a href="global.html#purple">purple</a></li><li><a href="global.html#red">red</a></li><li><a href="global.html#white">white</a></li><li><a href="global.html#yellow">yellow</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Background.html">Background</a></li><li><a href="Bullet.html">Bullet</a></li><li><a href="Button.html">Button</a></li><li><a href="Car.html">Car</a></li><li><a href="Circle.html">Circle</a></li><li><a href="DragDrop.html">DragDrop</a></li><li><a href="GameObject.html">GameObject</a></li><li><a href="Geometric.html">Geometric</a></li><li><a href="InputText.html">InputText</a></li><li><a href="Levels.html">Levels</a></li><li><a href="ManagerInputs.html">ManagerInputs</a></li><li><a href="ManagerLevel.html">ManagerLevel</a></li><li><a href="ManagerLoader.html">ManagerLoader</a></li><li><a href="ManagerStorage.html">ManagerStorage</a></li><li><a href="MultDirections.html">MultDirections</a></li><li><a href="Plaftorm.html">Plaftorm</a></li><li><a href="Rect.html">Rect</a></li><li><a href="Sound.html">Sound</a></li><li><a href="Sprite.html">Sprite</a></li><li><a href="StarterEngine.html">StarterEngine</a></li><li><a href="Text.html">Text</a></li><li><a href="Triangle.html">Triangle</a></li><li><a href="Turtle.html">Turtle</a></li></ul><h3>Global</h3><ul><li><a href="global.html#black">black</a></li><li><a href="global.html#blue">blue</a></li><li><a href="global.html#cian">cian</a></li><li><a href="global.html#gray">gray</a></li><li><a href="global.html#green">green</a></li><li><a href="global.html#orange">orange</a></li><li><a href="global.html#purple">purple</a></li><li><a href="global.html#red">red</a></li><li><a href="global.html#white">white</a></li><li><a href="global.html#yellow">yellow</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun May 06 2018 22:40:54 GMT-0300 (Hora oficial do Brasil)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Jun 29 2018 02:10:01 GMT-0300 (Hora oficial do Brasil)
 </footer>
 
 <script> prettyPrint(); </script>

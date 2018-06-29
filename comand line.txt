@@ -1,4 +1,4 @@
-cd Documents\GitHub\oficina-jogo-web
+cd Documents\GitHub\starterjs
 
 jsdoc scripts -r  README.md
 
