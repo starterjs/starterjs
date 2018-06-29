@@ -1,6 +1,5 @@
 /**
  * Representa um carro top view
- * @todo implementar essa classe
  * @param {string} sprite - Nome do sprite do botão
  * @param {int} x -  Coordenada x do texto
  * @param {int} y - Coordenada y do texto
@@ -27,8 +26,11 @@ function Car(sprite, x, y, h, w) {
 
 Car.prototype = Object.create(GameObject.prototype);
 
+/**
+ * Imprime o objeto Car
+ * @override
+ */
 Car.prototype.print = function (){
-
 
     ctx.save();
 
@@ -49,6 +51,13 @@ Car.prototype.print = function (){
 }
 
 
+/**
+ * Configura o Controle
+ * @param up - tecla para o comando up
+ * @param down - tecla para o comando down
+ * @param left - tecla para o comando left
+ * @param right - tecla para o comando rigth
+ */
 Car.prototype.setControll = function (up, down, left, right) {
     this.buttondown = down;
     this.buttonleft = left;
@@ -56,6 +65,9 @@ Car.prototype.setControll = function (up, down, left, right) {
     this.buttonup = up;
 }
 
+/**
+ * Configura o Controle como padrão
+ */
 Car.prototype.setDefaultControll = function () {
     this.buttondown = "DOWN";
     this.buttonleft = "LEFT";
@@ -63,13 +75,15 @@ Car.prototype.setDefaultControll = function () {
     this.buttonup = "UP";
 }
 
+/**
+ * Update do objeto Car
+ * @override
+ */
 Car.prototype.update = function () {
-
 
     this.x += this.speed * Math.cos(this.r * Math.PI / 180);
     this.y += this.speed * Math.sin(this.r * Math.PI / 180);
 
-    //movimento
     if( se.teclado.getKey( this.buttonup ) ){
         this.moveUp();
     }
@@ -98,7 +112,9 @@ Car.prototype.update = function () {
 
 };
 
-
+/**
+ * Move o carro da direção cima
+ */
 Car.prototype.moveUp = function () {
 
    if(Math.abs( this.speed ) < this.maxSpeed) {
@@ -110,14 +126,15 @@ Car.prototype.moveUp = function () {
     if(this.speed < 0)
         this.speed = -this.speed;
 
-    //this.x += this.speed * Math.cos(this.r * Math.PI / 180);
-    //this.y += this.speed * Math.sin(this.r * Math.PI / 180);
-
-
 }
 
+
+/**
+ * Move o carro da direção baixo
+ */
+
 Car.prototype.moveDown = function () {
-    console.log(this.speed)
+
     if(Math.abs( this.speed ) < this.maxSpeed) {
         if(this.speed >= 0)
             this.speed += this.aceleration;
@@ -130,6 +147,11 @@ Car.prototype.moveDown = function () {
 
 }
 
+
+/**
+ * Move o carro da direção esquerda
+ */
+
 Car.prototype.moveLeft = function () {
     if( se.teclado.getKey( this.buttonup ))
         this.r -=1;
@@ -137,6 +159,11 @@ Car.prototype.moveLeft = function () {
         this.r +=1;
 }
 
+
+
+/**
+ * Move o carro da direção direita
+ */
 Car.prototype.moveRight = function () {
     if( se.teclado.getKey( this.buttonup ))
         this.r +=1;

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: elements/Levels.js</title>
+    <title>JSDoc: Source: abstracts/Geometric.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: elements/Levels.js</h1>
+    <h1 class="page-title">Source: abstracts/Geometric.js</h1>
 
     
 
@@ -27,78 +27,76 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * Representa um level do jogo
- * @param {Array} objects - lista de objetos do level
+ * Representa uma figura Geométrica
+ * @param {int} x -  Coordenada x do texto
+ * @param {int} y - Coordenada y do texto
+ * @param {int} w - Largura do sprite
+ * @param {int} h - Altura do sprite
+ * @param {string} fill - Estilo do preencimento
+ * @param {string} stroke - Estilo da borda
  * @constructor
  */
-function Levels(objects) {
-    this.objects = [];
+function Geometric(x, y, classename, w, h,  fill, stroke, r, z) {
 
-    if(objects != undefined)
-        this.objects = objects;
+    GameObject.call(this, undefined, x, y, classename, w, h, r, z);
 
-    this.clean = true;
+    this.stroke = null;
+    if(stroke != undefined)
+        this.stroke = stroke;
 
-    se.mlevel.addLevel(this);
+    this.fill = null;
+    if(fill != undefined)
+        this.fill = fill;
+
+    this.linew = 1;
 
 }
 
+
+Geometric.prototype = Object.create(GameObject.prototype);
+
+
 /**
- * Adiciona um objeto ao level
- * @param {GameObject} object - Objeto a ser adicionado no level
+ * Configura o preenchimento do retângulo
  */
-Levels.prototype.addObjects = function(object){
-    this.objects.push(object);
+Geometric.prototype.setFill = function(fill) {
+    this.fill = fill;
+}
+/**
+ * Limpa  a configuração de preenchimento do retângulo
+ */
+Geometric.prototype.clearFill = function(fill) {
+    this.fill = null;
 }
 
 /**
- * Função inicial do level, deve ser sobreescrita pelo usuário
+ * Configura a borda do retângulo
  */
-Levels.prototype.startFunction = function () {};
-
-/**
- * Imprime todos os elementos do level
- */
-Levels.prototype.print = function () {
-
-    //sort by z-index
-    this.objects.sort(function(a,b){
-        return a.z- b.z;
-    });
-
-    for(var i=0; i&lt; this.objects.length; i++) {
-        //chama update de cada objeto
-        this.objects[i].update();
-        //objetos pode ser removidos no update
-        if(this.objects[i] == undefined)
-            continue;
-
-        this.objects[i].print(ctx);
-    }
+Geometric.prototype.setStroke = function(stroke) {
+    this.stroke = stroke;
 }
 
 /**
- * Configura a função inicial do level
- * @param callback
+ * Limpa a configuração de borda do retângulo
  */
-Levels.prototype.setFunctionStart = function(callback){
-    this.startFunction  = callback;
-};
-
-/**
- * Configura os objetos do level
- * @param {Array} objects - lista de objetos do level
- */
-Levels.prototype.setObjects = function (objects) {
-    this.objects = objects;
+Geometric.prototype.clearStroke = function() {
+    this.stroke = null;
 }
 
 /**
- * todo precisa documentar
+ * Configura o tamanho da linha da borda do retângulo
  */
-Levels.prototype.getObjects = function () {
-    return this.objects;
-}</code></pre>
+Geometric.prototype.setLineWidth = function(width) {
+    this.linew = width;
+}
+
+/**
+ * Obtém o tamanho da linha da borda do retângulo
+ */
+Geometric.prototype.getLineWidth = function() {
+    return this.linew;
+}
+</code></pre>
         </article>
     </section>
 

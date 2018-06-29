@@ -87,35 +87,72 @@ ManagerLoader.prototype.addAudio = function (name, resource) {
  * @method
  */
 ManagerLoader.prototype.loading = function( ){
+
+    if(this.assetsList.length == 0 ) {
+        this.print(0.99);
+        setTimeout(this.callback, 2000);
+        return;
+    }
+
+
     for(var i = 0; i &lt; this.assetsList.length; i++){
 
         //se for do tipo imagem
-		//if(this.assetsList[i].type. == "image"){
-			
-        this.assetsListLoaded.push(new Image());
+		if(this.assetsList[i][2] == "image"){
+
+            this.assetsListLoaded.push(new Image());
+            var img = this.assetsListLoaded[this.assetsListLoaded.length-1];
+
+            img.onload = function(){
+                //incrementa o contado
+                this.checkAssetsList++;
+                //se o contatdo for igual ao tamanho dos assets a serem carregados
+                if(this.checkAssetsList == this.assetsList.length ){
+                    this.print();
+                    setTimeout(this.callback, 2000);
+                }else{
+                    this.print();
+                }
+            }.bind(this);
+
+            //call src of assets
+            if(this.assetsList[i][3] == "user")
+                img.src = this.folder+this.assetsList[i][1];
+            else
+                img.src = this.starterfolder+this.assetsList[i][1];
 
         //se for do tipo som
-		//} else if(this.assetsList[i].type. == "sound"){ }
-			
+		} else if(this.assetsList[i][2] == "audio"){
 
-        this.assetsListLoaded[this.assetsListLoaded.length-1].onload = function(){
-            //incrementa o contado
-            this.checkAssetsList++;
-            //se o contatdo for igual ao tamanho dos assets a serem carregados
-            if(this.checkAssetsList == this.assetsList.length ){
-                this.printWithOutLoad()
-                setTimeout(this.callback, 2000);
-            }else{
-                this.print();
-            }
-        }.bind(this);
+		    var audio = null;
 
-        //call src of assets
-        if(this.assetsList[i][3] == "user")
-            this.assetsListLoaded[this.assetsListLoaded.length-1].src = this.folder+this.assetsList[i][1];
-        else
-            this.assetsListLoaded[this.assetsListLoaded.length-1].src = this.starterfolder+this.assetsList[i][1];
+            var onload = function(){
+
+                //incrementa o contado
+                this.checkAssetsList++;
+                //se o contatdo for igual ao tamanho dos assets a serem carregados
+                if(this.checkAssetsList == this.assetsList.length ){
+                    this.print();
+                    setTimeout(this.callback, 2000);
+                }else{
+                    this.print();
+                }
+            }.bind(this);
+
+
+            //call src of assets
+            if(this.assetsList[i][3] == "user")
+                audio = new Howl({ src: [this.folder+this.assetsList[i][1] ], onload: onload} );
+            else
+                audio = new Howl({ src: [this.starterfolder+this.assetsList[i][1]], onload: onload});
+
+            this.assetsListLoaded.push(audio);
+        }
     }
+
+
+
+
 }
 
 /**
@@ -125,12 +162,8 @@ ManagerLoader.prototype.loading = function( ){
  */
 ManagerLoader.prototype.getAssets = function(name){
 
-
-
     var returning = null;
-
     for(var i=0; i&lt; this.assetsList.length; i++){
-        //console.log(this.assetsList[i][0], name);
         if(this.assetsList[i][0] == name)
             returning = this.assetsListLoaded[i];
     }
@@ -144,9 +177,16 @@ ManagerLoader.prototype.getAssets = function(name){
  * Imprime o carregamento na tela inicial
  * @method
  */
-ManagerLoader.prototype.print = function(){
+ManagerLoader.prototype.print = function(porcent){
+    var porcentload = 0;
 
-    porcentload = ((this.checkAssetsList * 100)/this.assetsListLoaded.length)/100;
+    if(porcent!=undefined)
+        porcentload = porcent;
+    else
+        porcentload = ((this.checkAssetsList * 100)/this.assetsList.length)/100;
+
+    if(porcentload==1)
+        porcentload = 0.99;
 
     ctx.fillStyle="#008080ff";
     ctx.fillRect(0,0,canvas.width, canvas.height);
@@ -190,12 +230,7 @@ ManagerLoader.prototype.print = function(){
 
 }
 
-ManagerLoader.prototype.printWithOutLoad = function(){
-    ctx.fillStyle="#008080ff";
-    ctx.fillRect(0,0,canvas.width, canvas.height);
-    img = document.getElementById("logohtml");
-    ctx.drawImage(img,canvas.width/2 - 150, canvas.height/2 - 220, 300, 350);
-}</code></pre>
+</code></pre>
         </article>
     </section>
 
@@ -205,13 +240,13 @@ ManagerLoader.prototype.printWithOutLoad = function(){
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Background.html">Background</a></li><li><a href="Bullet.html">Bullet</a></li><li><a href="Button.html">Button</a></li><li><a href="Car.html">Car</a></li><li><a href="Circle.html">Circle</a></li><li><a href="DragDrop.html">DragDrop</a></li><li><a href="GameObject.html">GameObject</a></li><li><a href="Geometric.html">Geometric</a></li><li><a href="InputText.html">InputText</a></li><li><a href="Levels.html">Levels</a></li><li><a href="ManagerInputs.html">ManagerInputs</a></li><li><a href="ManagerLevel.html">ManagerLevel</a></li><li><a href="ManagerLoader.html">ManagerLoader</a></li><li><a href="ManagerStorage.html">ManagerStorage</a></li><li><a href="Plaftorm.html">Plaftorm</a></li><li><a href="Rect.html">Rect</a></li><li><a href="StarterEngine.html">StarterEngine</a></li><li><a href="Text.html">Text</a></li><li><a href="Triangle.html">Triangle</a></li><li><a href="Turtle.html">Turtle</a></li></ul><h3>Global</h3><ul><li><a href="global.html#black">black</a></li><li><a href="global.html#blue">blue</a></li><li><a href="global.html#cian">cian</a></li><li><a href="global.html#gray">gray</a></li><li><a href="global.html#green">green</a></li><li><a href="global.html#orange">orange</a></li><li><a href="global.html#purple">purple</a></li><li><a href="global.html#red">red</a></li><li><a href="global.html#white">white</a></li><li><a href="global.html#yellow">yellow</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Background.html">Background</a></li><li><a href="Bullet.html">Bullet</a></li><li><a href="Button.html">Button</a></li><li><a href="Car.html">Car</a></li><li><a href="Circle.html">Circle</a></li><li><a href="DragDrop.html">DragDrop</a></li><li><a href="GameObject.html">GameObject</a></li><li><a href="Geometric.html">Geometric</a></li><li><a href="InputText.html">InputText</a></li><li><a href="Levels.html">Levels</a></li><li><a href="ManagerInputs.html">ManagerInputs</a></li><li><a href="ManagerLevel.html">ManagerLevel</a></li><li><a href="ManagerLoader.html">ManagerLoader</a></li><li><a href="ManagerStorage.html">ManagerStorage</a></li><li><a href="MultDirections.html">MultDirections</a></li><li><a href="Plaftorm.html">Plaftorm</a></li><li><a href="Rect.html">Rect</a></li><li><a href="Sound.html">Sound</a></li><li><a href="Sprite.html">Sprite</a></li><li><a href="StarterEngine.html">StarterEngine</a></li><li><a href="Text.html">Text</a></li><li><a href="Triangle.html">Triangle</a></li><li><a href="Turtle.html">Turtle</a></li></ul><h3>Global</h3><ul><li><a href="global.html#black">black</a></li><li><a href="global.html#blue">blue</a></li><li><a href="global.html#cian">cian</a></li><li><a href="global.html#gray">gray</a></li><li><a href="global.html#green">green</a></li><li><a href="global.html#orange">orange</a></li><li><a href="global.html#purple">purple</a></li><li><a href="global.html#red">red</a></li><li><a href="global.html#white">white</a></li><li><a href="global.html#yellow">yellow</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun May 06 2018 22:40:54 GMT-0300 (Hora oficial do Brasil)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Jun 29 2018 02:10:01 GMT-0300 (Hora oficial do Brasil)
 </footer>
 
 <script> prettyPrint(); </script>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: elements/Levels.js</title>
+    <title>JSDoc: Source: managers/ManagerKeyboard.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: elements/Levels.js</h1>
+    <h1 class="page-title">Source: managers/ManagerKeyboard.js</h1>
 
     
 
@@ -27,77 +27,112 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * Representa um level do jogo
- * @param {Array} objects - lista de objetos do level
- * @constructor
+ * Essa classe é responsávl pela entrada de teclado
+ * @class
  */
-function Levels(objects) {
-    this.objects = [];
+function ManagerInputs() {
+    /**
+     * Flag da tecla direita
+     * @type {boolean}
+     */
+    this.DIREITA = false;
+    /**
+     * Flag da tecla esquerda
+     * @type {boolean}
+     */
+    this.ESQUERDA = false;
+    /**
+     * Flag da tecla cima
+     * @type {boolean}
+     */
+    this.CIMA  = false;
+    /**
+     * Flag da tecla baixo
+     * @type {boolean}
+     */
+    this.BAIXO = false;
+    /**
+     * Flag da tecla espaço
+     * @type {boolean}
+     */
+    this.ESPACO =  false;
 
-    if(objects != undefined)
-        this.objects = objects;
-
-    this.clean = true;
-
-    se.mlevel.addLevel(this);
-
+    this.start();
 }
 
 /**
- * Adiciona um objeto ao level
- * @param {GameObject} object - Objeto a ser adicionado no level
+ * Inicia a captura do teclado
+ * @method
  */
-Levels.prototype.addObjects = function(object){
-    this.objects.push(object);
+ManagerInputs.prototype.start = function () {
+
+    document.addEventListener('keydown', function(evento) {
+        if (evento.keyCode == 38) { // Seta para esquerda
+            this.CIMA = true;
+        }
+
+        if (evento.keyCode == 40) { // Seta para esquerda
+            this.BAIXO  = true;
+        }
+
+        if (evento.keyCode == 37) { // Seta para esquerda
+           this.ESQUERDA  = true;
+        }
+
+        if (evento.keyCode == 39) { // Seta para direita
+            this.DIREITA = true;
+        }
+
+        if (evento.keyCode == 32) { // Seta para direita
+            this.ESPACO  = true;
+        }
+
+        //console.log(this.ESQUERDA, this.DIREITA);
+    }.bind(this))
+
+
+    document.addEventListener('keyup', function(evento) {
+
+            if (evento.keyCode == 38) { // Seta para esquerda
+                this.CIMA = false;
+            }
+
+            if (evento.keyCode == 40) { // Seta para esquerda
+                this.BAIXO  = false;
+            }
+
+            if (evento.keyCode == 37) { // Seta para esquerda
+                this.ESQUERDA = false;
+            }
+
+            if (evento.keyCode == 39) { // Seta para direita
+                this.DIREITA  = false;
+            }
+
+        if (evento.keyCode == 32) { // Seta para direita
+            this.ESPACO  = false;
+        }
+
+        //console.log(this.ESQUERDA, this.DIREITA);
+        }.bind(this))
+
 }
 
-/**
- * Função inicial do level, deve ser sobreescrita pelo usuário
- */
-Levels.prototype.startFunction = function () {};
 
-/**
- * Imprime todos os elementos do level
- */
-Levels.prototype.print = function () {
+ManagerInputs.prototype.getKey = function (key) {
 
-    //sort by z-index
-    this.objects.sort(function(a,b){
-        return a.z- b.z;
-    });
 
-    for(var i=0; i&lt; this.objects.length; i++) {
-        //chama update de cada objeto
-        this.objects[i].update();
-        //objetos pode ser removidos no update
-        if(this.objects[i] == undefined)
-            continue;
-
-        this.objects[i].print(ctx);
+    if (key == "UP") {
+        return this.CIMA;
+    } else if (key == "DOWN") {
+        return this.BAIXO;
+    } else if (key == "RIGHT") {
+        return this.DIREITA;
     }
-}
+    if (key == "LEFT") {
+        return this.ESQUERDA;
+    }
 
-/**
- * Configura a função inicial do level
- * @param callback
- */
-Levels.prototype.setFunctionStart = function(callback){
-    this.startFunction  = callback;
-};
-
-/**
- * Configura os objetos do level
- * @param {Array} objects - lista de objetos do level
- */
-Levels.prototype.setObjects = function (objects) {
-    this.objects = objects;
-}
-
-/**
- * todo precisa documentar
- */
-Levels.prototype.getObjects = function () {
-    return this.objects;
 }</code></pre>
         </article>
     </section>

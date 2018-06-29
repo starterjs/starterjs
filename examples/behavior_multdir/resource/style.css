@@ -1,0 +1,26 @@
+body{
+    background-color: #555;
+    overflow-y: hidden;
+}
+
+canvas{
+    background-color: #fff;
+    margin-left: calc(50% - 350px);
+    margin-top: 100px;
+}
+
+#nameplayer{
+    background: none;
+    border: none;
+    border-bottom: 2px solid #fff;
+    position: fixed;
+    top: 400px;
+    left: calc(50% - 100px);
+    color:#fff;
+    font-size: 20px;
+    text-align: center;
+}
+
+#nameplayer:focus{
+    outline: none;
+}
