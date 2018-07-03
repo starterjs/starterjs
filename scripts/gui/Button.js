@@ -34,7 +34,7 @@ Button.prototype.click = function(){
 }
 
 /**
- * Atribue a função à função de clique do botão
+ * Atribui uma função à função de clique do botão
  * @method
  * @param {function} fn - função de clique
  */

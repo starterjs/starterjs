@@ -1,5 +1,6 @@
 /**
  * Representa um Círculo
+ * @extends Geometric
  * @param {string} sprite - Nome do sprite do botão
  * @param {int} x -  Coordenada x do texto
  * @param {int} y - Coordenada y do texto

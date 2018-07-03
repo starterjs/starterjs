@@ -1,9 +1,16 @@
+/**
+ * Essa classe é responsável pela entrada do mouse
+ * @class
+ */
 function ManagerMouse() {
     this.start();
     this.x = 0;
     this.y = 0;
 }
 
+/**
+ * Configura o estado inicial do mouse
+ */
 ManagerMouse.prototype.start = function () {
     var _this = this;
 
@@ -53,17 +60,26 @@ ManagerMouse.prototype.start = function () {
 }
 
 
-
+/**
+ * Obtém a posição x e y do mouse
+ * @return {{x: *, y: *}} - posição x e y
+ */
 ManagerMouse.prototype.getMousePosition = function () {
     return {x: this.x, y:this.y}
 }
 
-
+/**
+ * Obtém a posição x do mouse
+ * @return {int}  x - posição x do mouse
+ */
 ManagerMouse.prototype.getMouseX = function () {
     return this.x;
 }
 
-
+/**
+ * Obtém a posição y do mouse
+ * @return {int}  y - posição y do mouse
+ */
 ManagerMouse.prototype.getMouseY = function () {
     return this.y;
 }

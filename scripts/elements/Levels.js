@@ -17,6 +17,7 @@ function Levels(objects) {
 
 /**
  * Adiciona um objeto ao level
+ * @method
  * @param {GameObject} object - Objeto a ser adicionado no level
  */
 Levels.prototype.addObjects = function(object){
@@ -25,11 +26,13 @@ Levels.prototype.addObjects = function(object){
 
 /**
  * Função inicial do level, deve ser sobreescrita pelo usuário
+ * @method
  */
 Levels.prototype.startFunction = function () {};
 
 /**
  * Imprime todos os elementos do level
+ * @method
  */
 Levels.prototype.print = function () {
 
@@ -51,6 +54,7 @@ Levels.prototype.print = function () {
 
 /**
  * Configura a função inicial do level
+ * @method
  * @param callback
  */
 Levels.prototype.setFunctionStart = function(callback){
@@ -59,6 +63,7 @@ Levels.prototype.setFunctionStart = function(callback){
 
 /**
  * Configura os objetos do level
+ * @method
  * @param {Array} objects - lista de objetos do level
  */
 Levels.prototype.setObjects = function (objects) {
@@ -66,7 +71,8 @@ Levels.prototype.setObjects = function (objects) {
 }
 
 /**
- * todo precisa documentar
+ * Pega todos os objetos do level
+ * @method
  */
 Levels.prototype.getObjects = function () {
     return this.objects;

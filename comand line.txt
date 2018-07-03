@@ -6,7 +6,7 @@ jsdoc scripts -r  README.md
 __________________ gerar .mim.js
 https://jscompress.com/
 
-ordem:
+ordem v 0.9.0:
 
 elements/GameObject.js
 elements/Background.js
@@ -23,3 +23,36 @@ scripts/forms/Rect.js
 scripts/forms/Triangle.js
 external/Trutle.js
 scripts/StarterEngine.js
+
+
+
+ordem v 0.9.1:
+
+howler.min.js 
+GameObject.js 
+Geometric.js 
+Bullet.js 
+Car.js 
+MultDirections.js 
+Platform.js 
+Animation 
+Background.js 
+Levels.js 
+Sound.js 
+Sprite.js 
+Circle.js 
+Rect.js 
+Triangle.js 
+Button.js 
+DragDrop.js 
+InputText.js 
+Score.js
+Text.js 
+ManagerKeyboard.js 
+ManagerLevel.js 
+ManagerLoader.js 
+ManagerMouse.js 
+ManagerStorage.js 
+Trutle.js 
+StarterEngine.js 
+

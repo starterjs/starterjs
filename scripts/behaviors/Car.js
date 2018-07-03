@@ -1,5 +1,6 @@
 /**
  * Representa um carro top view
+ * @extends GameObject
  * @param {string} sprite - Nome do sprite do botão
  * @param {int} x -  Coordenada x do texto
  * @param {int} y - Coordenada y do texto
@@ -17,6 +18,7 @@ function Car(sprite, x, y, h, w) {
 
     this.aceleration = 0.1;
     this.desaceleration = 0.05;
+    this.invertaceleration = 1;
     this.maxSpeed = 4;
     this.speed = 1;
 
@@ -28,6 +30,7 @@ Car.prototype = Object.create(GameObject.prototype);
 
 /**
  * Imprime o objeto Car
+ * @method
  * @override
  */
 Car.prototype.print = function (){
@@ -53,6 +56,7 @@ Car.prototype.print = function (){
 
 /**
  * Configura o Controle
+ * @method
  * @param up - tecla para o comando up
  * @param down - tecla para o comando down
  * @param left - tecla para o comando left
@@ -67,6 +71,7 @@ Car.prototype.setControll = function (up, down, left, right) {
 
 /**
  * Configura o Controle como padrão
+ * @method
  */
 Car.prototype.setDefaultControll = function () {
     this.buttondown = "DOWN";
@@ -76,7 +81,8 @@ Car.prototype.setDefaultControll = function () {
 }
 
 /**
- * Update do objeto Car
+ * Atualiza o estado do objeto
+ * @method
  * @override
  */
 Car.prototype.update = function () {
@@ -113,7 +119,8 @@ Car.prototype.update = function () {
 };
 
 /**
- * Move o carro da direção cima
+ * Move para a direção cima
+ * @method
  */
 Car.prototype.moveUp = function () {
 
@@ -130,7 +137,8 @@ Car.prototype.moveUp = function () {
 
 
 /**
- * Move o carro da direção baixo
+ * Move para a direção baixo
+ * @method
  */
 
 Car.prototype.moveDown = function () {
@@ -143,15 +151,15 @@ Car.prototype.moveDown = function () {
     }
 
     if(this.speed > 0)
-        this.speed = -this.speed;
+        this.speed -= this.invertaceleration;
 
 }
 
 
 /**
- * Move o carro da direção esquerda
+ * Move para a  direção esquerda
+ * @method
  */
-
 Car.prototype.moveLeft = function () {
     if( se.teclado.getKey( this.buttonup ))
         this.r -=1;
@@ -162,7 +170,8 @@ Car.prototype.moveLeft = function () {
 
 
 /**
- * Move o carro da direção direita
+ * Move para a direção direita
+ * @method
  */
 Car.prototype.moveRight = function () {
     if( se.teclado.getKey( this.buttonup ))

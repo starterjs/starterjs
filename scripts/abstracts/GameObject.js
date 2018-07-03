@@ -103,6 +103,7 @@ GameObject.prototype.getRotate = function () {
 
 /**
  * Configura a posição do objeto
+ * @class
  * @param {int} x - Coordenada x do objeto
  * @param {int} y - Coordenada y do objeto
  */
@@ -113,9 +114,9 @@ GameObject.prototype.setPosition = function (x, y) {
 
 /**
  * Configura a posição do objeto
+ * @method
  * @param {GameObject} object - O objeto âncora
  * @param {string} position - a posição do objeto ancorado (top, bottom, left, right)
- * @todo impelentar as outras posições
  */
 GameObject.prototype.setPositionByObject = function (object, position) {
 
@@ -128,6 +129,7 @@ GameObject.prototype.setPositionByObject = function (object, position) {
 
 /**
  * Configura a largura do objeto
+ * @method
  * @param {int} width - Largura do objeto
  */
 GameObject.prototype.setWidth = function (width) {
@@ -136,6 +138,7 @@ GameObject.prototype.setWidth = function (width) {
 
 /**
  * Obtém a largura do objeto
+ * @method
  * @return {int} width - Largura do objeto
  */
 GameObject.prototype.getWidth = function () {
@@ -144,6 +147,7 @@ GameObject.prototype.getWidth = function () {
 
 /**
  * Configura a altura do objeto
+ * @method
  * @param {int} height - Altura do objeto
  */
 GameObject.prototype.setHeight = function (height) {
@@ -152,6 +156,7 @@ GameObject.prototype.setHeight = function (height) {
 
 /**
  * Obtém a altura do objeto
+ * @method
  * @return {int} height - Altura do objeto
  */
 GameObject.prototype.getHeight = function () {
@@ -160,6 +165,7 @@ GameObject.prototype.getHeight = function () {
 
 /**
  * Configura o tamanho do objeto
+ * @method
  * @param {int} Largura do objeto
  * @param {int} Altura do objeto
  */
@@ -170,6 +176,7 @@ GameObject.prototype.setSize = function (width, height) {
 
 /**
  * Translada o objeto
+ * @method
  * @param {int} x - Quantidade de pixels na horizontal
  * @param {int} y - Quantidade de pixels na vertical
  */

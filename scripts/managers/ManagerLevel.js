@@ -171,6 +171,10 @@ ManagerLevel.prototype.gameOver = function () {
     this.loadLevel(0);
 }
 
+/**
+ * Desativa todos dragdrops do level
+ * @method
+ */
 ManagerLevel.prototype.offDragdropFlag = function () {
     var elements = this.getObjectsCurrentLevel();
     for(var i=0; i<elements.length; i++){

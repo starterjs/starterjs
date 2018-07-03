@@ -1,5 +1,5 @@
 /**
- * Essa classe é responsávl pelo armazenamento do dados
+ * Essa classe é responsável pelo armazenamento do dados
  * @class
  */
 ManagerStorage = function () {}

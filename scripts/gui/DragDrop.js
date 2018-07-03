@@ -23,7 +23,10 @@ function DragDrop(sprite, x, y, callback, w, h){
 
 DragDrop.prototype = Object.create(GameObject.prototype);
 
-
+/**
+ * Atualiza o dragdrop
+ * @method
+ */
 DragDrop.prototype.print = function(){
 
     if(this.dragdroped){

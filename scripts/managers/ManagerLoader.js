@@ -24,7 +24,12 @@ ManagerLoader.prototype.addResource = function (name, resource, type) {
     this.assetsList.push([name, resource, type,"user"]);
 }
 
-
+/**
+ * Adiciona os resources nativos do starter
+ * @param {string} name - nome do resource
+ * @param {Object} resource - Objeto do resource
+ * @param {string} type - Tipo do resorce (imagem, som)
+ */
 ManagerLoader.prototype.addStarterResource = function (name, resource, type) {
     this.assetsList.push([name, resource, type,"starter"]);
 }
