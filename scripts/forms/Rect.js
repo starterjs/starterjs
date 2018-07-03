@@ -17,6 +17,7 @@ Rect.prototype = Object.create(Geometric.prototype);
 
 /**
  * Imprime o estado atual do retâmgulo na tela
+ * @extends Geometric
  */
 Rect.prototype.print = function() {
 

@@ -30,19 +30,24 @@ Geometric.prototype = Object.create(GameObject.prototype);
 
 /**
  * Configura o preenchimento do retângulo
+ * @method
+ * @param {string}  fill - cor do preecenchimento em RGB
  */
 Geometric.prototype.setFill = function(fill) {
     this.fill = fill;
 }
 /**
  * Limpa  a configuração de preenchimento do retângulo
+ * @method
  */
-Geometric.prototype.clearFill = function(fill) {
+Geometric.prototype.clearFill = function() {
     this.fill = null;
 }
 
 /**
  * Configura a borda do retângulo
+ * @method
+ * @param {string} stroke - cor da linha em RGB
  */
 Geometric.prototype.setStroke = function(stroke) {
     this.stroke = stroke;
@@ -50,6 +55,7 @@ Geometric.prototype.setStroke = function(stroke) {
 
 /**
  * Limpa a configuração de borda do retângulo
+ * @method
  */
 Geometric.prototype.clearStroke = function() {
     this.stroke = null;
@@ -57,6 +63,8 @@ Geometric.prototype.clearStroke = function() {
 
 /**
  * Configura o tamanho da linha da borda do retângulo
+ * @method
+ * @param {int} width - largura da linha
  */
 Geometric.prototype.setLineWidth = function(width) {
     this.linew = width;
@@ -64,6 +72,8 @@ Geometric.prototype.setLineWidth = function(width) {
 
 /**
  * Obtém o tamanho da linha da borda do retângulo
+ * @method
+ * @return {int} line-width
  */
 Geometric.prototype.getLineWidth = function() {
     return this.linew;

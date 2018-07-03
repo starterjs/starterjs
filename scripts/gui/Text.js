@@ -41,6 +41,7 @@ Text.prototype = Object.create(GameObject.prototype);
 
 /**
  * Imprime o texto
+ * @method
  * @override
  */
 Text.prototype.print = function() {
@@ -50,35 +51,57 @@ Text.prototype.print = function() {
     ctx.fillText(this.text, this.x, this.y);
 }
 
+/**
+ * Configura o texto
+ * @method
+ * @param {string} text - texto para ser exibido
+ */
 Text.prototype.setText = function(text) {
     this.text = text;
 
 }
 
+/**
+ * Configura alinhamento
+ * @method
+ * @param {string} aling - pode ser start, center, end, left ou right
+ */
 Text.prototype.setAling = function(aling) {
     this.textaling = aling;
 }
 
-
-Text.prototype.toCenter = function(aling) {
+/**
+ * Configura o alinhamento para o centro
+ */
+Text.prototype.toCenter = function() {
     this.textaling = "center";
 }
 
-
-Text.prototype.toEnd = function(aling) {
+/**
+ * Configura o alinhamento para o final
+ */
+Text.prototype.toEnd = function() {
     this.textaling = "end";
 }
 
 
-Text.prototype.toStart = function(aling) {
+/**
+ * Configura o alinhamento para o início
+ */
+Text.prototype.toStart = function() {
     this.textaling = "start";
 }
 
-Text.prototype.toLeft = function(aling) {
+/**
+ * Configura o alinhamento para a esquerda
+ */
+Text.prototype.toLeft = function() {
     this.textaling = "left";
 }
 
-
-Text.prototype.toRight = function(aling) {
+/**
+ * Configura o alinhamento para a direita
+ */
+Text.prototype.toRight = function() {
     this.textaling = "right";
 }

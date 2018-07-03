@@ -1,5 +1,6 @@
 /**
  * Representa um projétil
+ * @class
  * @extends GameObject
  * @param sprite
  * @param {string} sprite - Nome do sprite do background
@@ -10,7 +11,6 @@
  * @param {int} w - Largura do sprite
  * @param {int} h - Altura do sprite
  * @constructor
- * @todo Implementar a rotacao
  */
 function Bullet(sprite, x , y, v, r, h, w) {
     GameObject.call(this, sprite, x, y, "bullet", h,w);
@@ -27,6 +27,7 @@ Bullet.prototype = Object.create(GameObject.prototype);
 
 /**
  * Configura os elementos que não terão colisão
+ * @method
  * @param {string} nofire - nome de gameobject
  */
 Bullet.prototype.setNoFire = function (nofire) {
@@ -35,6 +36,7 @@ Bullet.prototype.setNoFire = function (nofire) {
 
 /**
  * Configura os elementos que terão colisão
+ * @method
  * @param {Array} fire - um vetor de 2 dimensões [ {string} nome, {function} função]
  */
 Bullet.prototype.setFire = function (fire) {
@@ -43,7 +45,8 @@ Bullet.prototype.setFire = function (fire) {
 
 
 /**
- * Update do projétil
+ * Atualiza o objeto Projétil
+ * @method
  * @override
  */
 Bullet.prototype.update = function () {
@@ -87,6 +90,7 @@ Bullet.prototype.update = function () {
 
 /**
  * Remove o projétil do jogo
+ * @method
  */
 Bullet.prototype.remove = function () {
     if(this.isremoving)

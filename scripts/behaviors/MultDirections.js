@@ -1,12 +1,12 @@
 /**
  * Representa um elemento multidirecional
+ * @extends GameObject
  * @param {string} sprite - Nome do sprite do botão
  * @param {int} x -  Coordenada x do texto
  * @param {int} y - Coordenada y do texto
  * @param {int} w - Largura do sprite
  * @param {int} h - Altura do sprite
  * @constructor
- * @todo implementar o turnDown e Up além de transição automática
  */
 function MultDirections(sprite, x, y, h, w) {
 
@@ -28,9 +28,11 @@ function MultDirections(sprite, x, y, h, w) {
 
 MultDirections.prototype = Object.create(GameObject.prototype);
 
-/*
-*
-*/
+/**
+ * Exibe na tela o objeto MultiDirections
+ * @method
+ * @override
+**/
 MultDirections.prototype.print = function (){
 
     ctx.save();
@@ -48,10 +50,16 @@ MultDirections.prototype.print = function (){
 
     ctx.restore();
 
-
 }
 
-
+/**
+ * Configura o controle
+ * @method
+ * @param up - tecla para o comando up
+ * @param down - tecla para o comando down
+ * @param left - tecla para o comando left
+ * @param right - tecla para o comando rigth
+ */
 MultDirections.prototype.setControll = function (up, down, left, right) {
     this.buttondown = down;
     this.buttonleft = left;
@@ -59,6 +67,10 @@ MultDirections.prototype.setControll = function (up, down, left, right) {
     this.buttonup = up;
 }
 
+/**
+ * Configura o Controle como padrão - Keys up, down, left and right
+ * @method
+ */
 MultDirections.prototype.setDefaultControll = function () {
     this.buttondown = "DOWN";
     this.buttonleft = "LEFT";
@@ -66,53 +78,70 @@ MultDirections.prototype.setDefaultControll = function () {
     this.buttonup = "UP";
 }
 
+/**
+ * Atualiza estado do objeto
+ * @method
+ * @override
+ */
 MultDirections.prototype.update = function () {
 
 
     this.x += this.speed * Math.cos(this.r * Math.PI / 180);
     this.y += this.speed * Math.sin(this.r * Math.PI / 180);
 
-    //modificar
-    //deve ser um if aninhado
-    /*se up{
-       se !rigth e !left{
-          this.moveUp();
-       }else rigth{
-           this.turnToRight();
-       }else left{
-           this.turnToLeft();
-       }
-    }
-    */
+    //up
     if( se.teclado.getKey( this.buttonup ) ) {
 
         if (!se.teclado.getKey(this.buttonright) && !se.teclado.getKey(this.buttonleft)) {
             this.moveUp();
         } else if (se.teclado.getKey(this.buttonright)) {
             this.turnToRight();
-        }else{
+        }else if (se.teclado.getKey(this.buttonleft)){
             this.turnToLetf();
+        }else{
+            return;
         }
     }
 
+    //down
     if(se.teclado.getKey(this.buttondown)){
+
         if (!se.teclado.getKey(this.buttonright) && !se.teclado.getKey(this.buttonleft)) {
             this.moveDown();
         } else if (se.teclado.getKey(this.buttonright)) {
             this.turnToRight();
-        }else{
+        }else if (se.teclado.getKey(this.buttonleft)){
             this.turnToLetf();
+        }else{
+            return;
         }
 
 
     }
 
-    if(se.teclado.getKey(this.buttonright) && !se.teclado.getKey(this.buttondown) && !se.teclado.getKey(this.buttonup)){
-        this.moveRight()
+   if(se.teclado.getKey(this.buttonright) ){
+
+        if (!se.teclado.getKey(this.buttonup) && !se.teclado.getKey(this.buttondown)) {
+            this.moveRight();
+        } else if (se.teclado.getKey(this.buttondown)) {
+            this.turnToDown();
+        }else if (se.teclado.getKey(this.buttonup)){
+            this.turnToUp();
+        }else{
+            return;
+        }
     }
 
-    if(se.teclado.getKey(this.buttonleft) && !se.teclado.getKey(this.buttondown) && !se.teclado.getKey(this.buttonup)){
-        this.moveLeft();
+    if(se.teclado.getKey(this.buttonleft) ){
+        if (!se.teclado.getKey(this.buttonup) && !se.teclado.getKey(this.buttondown)) {
+            this.moveLeft();
+        } else if (se.teclado.getKey(this.buttondown)) {
+            this.turnToDown();
+        }else if (se.teclado.getKey(this.buttonup)){
+            this.turnToUp();
+        }else{
+            return;
+        }
     }
 
     if ( (!se.teclado.ESQUERDA) && (!se.teclado.DIREITA) && (!se.teclado.CIMA)&& (!se.teclado.BAIXO)){
@@ -127,7 +156,10 @@ MultDirections.prototype.update = function () {
 
 };
 
-
+/**
+ * Move para a direção cima
+ * @method
+ */
 MultDirections.prototype.moveUp = function () {
 
     if(this.getRotate() != 270)
@@ -138,6 +170,10 @@ MultDirections.prototype.moveUp = function () {
     }
 }
 
+/**
+ * Move para a baixo
+ * @method
+ */
 MultDirections.prototype.moveDown = function () {
 
     if(this.getRotate() != 90)
@@ -148,7 +184,10 @@ MultDirections.prototype.moveDown = function () {
     }
 }
 
-
+/**
+ * Move para a esquerda
+ * @method
+ */
 MultDirections.prototype.moveLeft = function () {
 
     if(this.getRotate() != 180)
@@ -160,6 +199,10 @@ MultDirections.prototype.moveLeft = function () {
     }
 }
 
+/**
+ * Move para a direita
+ * @method
+ */
 MultDirections.prototype.moveRight = function () {
 
     if(this.getRotate() != 360)
@@ -170,10 +213,13 @@ MultDirections.prototype.moveRight = function () {
     }
 }
 
-
+/**
+ * Rotaciona para a direita
+ * @method
+ */
 MultDirections.prototype.turnToRight = function () {
 
-    if((this.getRotate() >= 270) && (this.getRotate() < 325) ) {
+    if((this.getRotate() >= 270) && (this.getRotate() < 315) ) {
         this.setRotate(this.getRotate() + 1);
     }else if((this.getRotate() <= 90) && (this.getRotate() > 45) ) {
         this.setRotate(this.getRotate() - 1);
@@ -181,10 +227,13 @@ MultDirections.prototype.turnToRight = function () {
 
 };
 
+/**
+ * Rotaciona para a esquerda
+ * @method
+ */
 MultDirections.prototype.turnToLetf = function () {
 
-    console.log("turn" + this.getRotate())
-    if( (this.getRotate() <= 270) && (this.getRotate() > 235) ){
+    if( (this.getRotate() <= 270) && (this.getRotate() > 225) ){
         this.setRotate(this.getRotate()-1);
     }else if( (this.getRotate() >= 90) && (this.getRotate() < 135) ) {
         this.setRotate(this.getRotate() + 1);
@@ -194,16 +243,28 @@ MultDirections.prototype.turnToLetf = function () {
 
 
 /**
- * @todo implementar método
+ * Rotaciona para cima
+ * @method
  */
 MultDirections.prototype.turnToUp = function () {
-  return null;
+
+    if(( this.getRotate() <= 360) && ( this.getRotate() > 315)) {
+        this.setRotate(this.getRotate()-1);
+    }else if((this.getRotate() >= 180) && ( this.getRotate() < 225)){
+        this.setRotate(this.getRotate()+1);
+    }
 }
 
 
 /**
- * @todo implementar método
+ * Rotaciona para baixo
+ * @method
  */
 MultDirections.prototype.turnToDown = function () {
-return null;
+  console.log(this.getRotate())
+    if(  (this.getRotate() == 360) || ( ( this.getRotate() > 0) ) && ( this.getRotate() < 45) )  {
+       this.setRotate(this.getRotate()+1);
+   }else if((this.getRotate() <= 180) && ( this.getRotate() >  135)){
+        this.setRotate(this.getRotate()-1);
+    }
 }

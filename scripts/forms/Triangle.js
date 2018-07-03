@@ -1,5 +1,6 @@
 /**
  * Representa um Retângulo
+ * @extends Geometric
  * @param {string} sprite - Nome do sprite do botão
  * @param {array} p1 -  Ponto 1
  * @param {array} p2 - Ponto 2

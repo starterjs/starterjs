@@ -59,7 +59,6 @@ ManagerInputs.prototype.start = function () {
             this.ESPACO  = true;
         }
 
-        //console.log(this.ESQUERDA, this.DIREITA);
     }.bind(this))
 
 
@@ -85,12 +84,16 @@ ManagerInputs.prototype.start = function () {
             this.ESPACO  = false;
         }
 
-        //console.log(this.ESQUERDA, this.DIREITA);
         }.bind(this))
 
 }
 
-
+/**
+ * Verifica se a tecla está ou não pressionada
+ * @method
+ * @param {string} key - tecla
+ * @return {boolean} true se a tecla está pressionada
+ */
 ManagerInputs.prototype.getKey = function (key) {
 
 
