@@ -84,7 +84,7 @@ function Turtle() {
     this.changecolorup = true;
 
     //self add in currente level (test)
-    se.mlevel.getCurrentLevel().addObjects(this);
+    se.mlevel.getCurrentScene().addObjects(this);
 }
 
 /**

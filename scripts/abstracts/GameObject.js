@@ -38,34 +38,62 @@ function GameObject(sprite, x, y, classename, w, h, r, z) {
     if(r != undefined)
         this.r = r;
 
+    this.animation != null;
+
+
     if(sprite != undefined) {
-        this.sprite = se.loader.getAssets(sprite);
-        if((!this.sprite instanceof Image) || (this.sprite == null)){
-            throw new Error("Ocorreu um erro ao carregar a imagem" + sprite + ". Verifique o nome adicionado aos resources");
+
+        if(Array.isArray(sprite)){
+
+            var sprites = [];
+
+            for(var i=0; i< sprite.length; i++){
+
+                var sprite_temp =  se.loader.getAssets(sprite[i]) ;
+
+                if((!sprite_temp instanceof Image) || (sprite_temp == null)){
+                    throw new Error("Ocorreu um erro ao carregar a imagem" + sprite_temp + ". Verifique o nome adicionado aos resources");
+                }else{
+                    sprites.push(sprite_temp);
+                    //this.currentsprite = 0;
+
+                    if(this.h == 0)
+                        this.h = sprite_temp.height;
+                    if(this.w == 0)
+                        this.w = sprite_temp.width;
+                }
+            }
+
+            this.animation = new Animation(sprites);
 
         }else{
 
-            this.currentsprite = 0;
-            if(this.h == 0)
-                this.h = this.sprite.height;
-            if(this.w == 0)
-                this.w = this.sprite.width;
+            this.sprite = se.loader.getAssets(sprite);
+            if((!this.sprite instanceof Image) || (this.sprite == null)){
+                throw new Error("Ocorreu um erro ao carregar a imagem" + sprite + ". Verifique o nome adicionado aos resources");
+            }else{
+                this.currentsprite = 0;
+                if(this.h == 0)
+                    this.h = this.sprite.height;
+                if(this.w == 0)
+                    this.w = this.sprite.width;
+            }
         }
-
     }
 
-    this.linklevel = se.mlevel.currentLevel;
+    this.linklevel = se.mlevel.currentScene;
 
 
     //self add in currente level (test)
-    if(se.mlevel.getCurrentLevel()!= undefined)
-        se.mlevel.getCurrentLevel().addObjects(this);
+    if(se.mlevel.getCurrentScene()!= undefined)
+        se.mlevel.getCurrentScene().addObjects(this);
     else
         console.warn("Impossível inserir objeto no nível atual.");
 }
 
 /**
- * Atualiza o estado o objeto, é chamado há cada lopp
+ * Atualiza o estado o objeto, é chamado há cada loop
+ * @method
  */
 GameObject.prototype.update = function() {
 
@@ -76,7 +104,11 @@ GameObject.prototype.update = function() {
  */
 GameObject.prototype.print = function() {
 
+    if(this.animation != null) {
+        ctx.drawImage(this.animation.getCurrentSprite(), this.x, this.y, this.w, this.h);
+    }else {
         ctx.drawImage(this.sprite, this.x, this.y, this.w, this.h);
+    }
 }
 
 /**
@@ -103,7 +135,7 @@ GameObject.prototype.getRotate = function () {
 
 /**
  * Configura a posição do objeto
- * @class
+ * @method
  * @param {int} x - Coordenada x do objeto
  * @param {int} y - Coordenada y do objeto
  */

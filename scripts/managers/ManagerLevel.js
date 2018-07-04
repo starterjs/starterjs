@@ -1,8 +1,8 @@
 /**
  * @class
- * @classdesc Essa classe é reponsável por controlar os Levels
+ * @classdesc Essa classe é reponsável por controlar os Scene
  */
-function ManagerLevel() {
+function ManagerScene() {
     /**
      * Nome do jogador
      * @public
@@ -14,12 +14,12 @@ function ManagerLevel() {
      * @public
      * @type {int}
      */
-    this.currentLevel =-1;
+    this.currentScene =-1;
     /**
-     * Array de Levels
+     * Array de Scene
      * @type {Array}
      */
-    this.levels = [];
+    this.scenes = [];
     /**
      * Score (pontos) do jogador
      * @type {number}
@@ -30,12 +30,12 @@ function ManagerLevel() {
 }
 
 /**
- * Adiciona o Level no array de levels
+ * Adiciona o Level no array de scenes
  * @method
- * @param {Levels} level - Uma isntância de um level
+ * @param {Scene} level - Uma isntância de um level
  */
-ManagerLevel.prototype.addLevel =function (level) {
-    this.levels.push(level);
+ManagerScene.prototype.addScene =function (level) {
+    this.scenes.push(level);
 }
 
 /**
@@ -43,30 +43,30 @@ ManagerLevel.prototype.addLevel =function (level) {
  * @method
  * @param {int} index
  */
-ManagerLevel.prototype.loadLevel =function (index) {
-    this.currentLevel = index;
-    this.getCurrentLevel().setObjects([]);
-    this.getCurrentLevel().startFunction();
+ManagerScene.prototype.loadScene =function (index) {
+    this.currentScene = index;
+    this.getCurrentScene().setObjects([]);
+    this.getCurrentScene().startFunction();
 }
 
 /**
- * Carrega o próximo level, seguindo a ordem do array de levels
+ * Carrega o próximo level, seguindo a ordem do array de scenes
  * @method
  */
-ManagerLevel.prototype.nextLevel =function () {
-    this.currentLevel++;
-    this.getCurrentLevel().setObjects([]);
-    this.getCurrentLevel().startFunction();
+ManagerScene.prototype.nextScene =function () {
+    this.currentScene++;
+    this.getCurrentScene().setObjects([]);
+    this.getCurrentScene().startFunction();
 }
 
 /**
- * Carrega o level anterior, seguindo a ordem do array de levels
+ * Carrega o level anterior, seguindo a ordem do array de scenes
  * @method
  */
-ManagerLevel.prototype.priorLevel =function () {
-    this.currentLevel--;
-    this.getCurrentLevel().setObjects([]);
-    this.getCurrentLevel().startFunction();
+ManagerScene.prototype.priorScene =function () {
+    this.currentScene--;
+    this.getCurrentScene().setObjects([]);
+    this.getCurrentScene().startFunction();
 }
 
 /**
@@ -74,33 +74,33 @@ ManagerLevel.prototype.priorLevel =function () {
  * @method
  * @returns {*}
  */
-ManagerLevel.prototype.getCurrentLevel = function () {
-    return this.levels[this.currentLevel];
+ManagerScene.prototype.getCurrentScene = function () {
+    return this.scenes[this.currentScene];
 }
 
 /**
  * Limpa o canvas e chama a função print do level atual
  * @method
  */
-ManagerLevel.prototype.print = function () {
-  if(this.levels[this.currentLevel].clean) {
+ManagerScene.prototype.print = function () {
+  if(this.scenes[this.currentScene].clean) {
       ctx.save()
       ctx.setTransform(1,0,0,1,0,0)
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.restore()
      //console.log("is cleaning")
   }
-    this.levels[this.currentLevel].print(ctx);
+    this.scenes[this.currentScene].print(ctx);
 }
 
 /**
  * Obtém um level segundo o index
  * @method
  * @param index
- * @returns {Levels}
+ * @returns {Scene}
  */
-ManagerLevel.prototype.getLevel = function (index) {
-    return this.levels[index];
+ManagerScene.prototype.getScene = function (index) {
+    return this.scenes[index];
 }
 
 
@@ -111,16 +111,16 @@ ManagerLevel.prototype.getLevel = function (index) {
  * @param index
  * @returns {Array|*}
  */
-ManagerLevel.prototype.getObjectByLevel = function (index) {
-    return this.levels[index].getObjects();
+ManagerScene.prototype.getObjectByScene = function (index) {
+    return this.scenes[index].getObjects();
 }
 
 /**
  * todo precisa documentar
  */
-ManagerLevel.prototype.getObjectsCurrentLevel = function () {
-    if(this.currentLevel != -1)
-        return this.levels[this.currentLevel].getObjects();
+ManagerScene.prototype.getObjectsCurrentScene = function () {
+    if(this.currentScene != -1)
+        return this.scenes[this.currentScene].getObjects();
     else
         return [];
 }
@@ -131,8 +131,8 @@ ManagerLevel.prototype.getObjectsCurrentLevel = function () {
  * @method
  * @param object
  */
-ManagerLevel.prototype.removeObject = function (object) {
-    this.getObjectByLevel(object.linklevel).splice(this.getObjectByLevel(object.linklevel).indexOf(object), 1);
+ManagerScene.prototype.removeObject = function (object) {
+    this.getObjectByScene(object.linklevel).splice(this.getObjectByScene(object.linklevel).indexOf(object), 1);
 }
 
 
@@ -140,8 +140,8 @@ ManagerLevel.prototype.removeObject = function (object) {
  * Adiciona um ponto ao score (ponto)
  * @method
  */
-ManagerLevel.prototype.addScore = function(scorename){
-    objs = this.getObjectByLevel(this.currentLevel);
+ManagerScene.prototype.addScore = function(scorename){
+    objs = this.getObjectByScene(this.currentScene);
     for(var i=0; i< objs.length; i++){
         if(objs[i].name == scorename){
             objs[i].score++;
@@ -155,7 +155,7 @@ ManagerLevel.prototype.addScore = function(scorename){
  * Chamado quando ocorre o Game Over
  * @method
  */
-ManagerLevel.prototype.gameOver = function () {
+ManagerScene.prototype.gameOver = function () {
     scores = se.storage.getItemJSON("score1");
 
     for(var i = 0; i< scores.length; i++){
@@ -168,15 +168,15 @@ ManagerLevel.prototype.gameOver = function () {
         }
     };
 
-    this.loadLevel(0);
+    this.loadScene(0);
 }
 
 /**
  * Desativa todos dragdrops do level
  * @method
  */
-ManagerLevel.prototype.offDragdropFlag = function () {
-    var elements = this.getObjectsCurrentLevel();
+ManagerScene.prototype.offDragdropFlag = function () {
+    var elements = this.getObjectsCurrentScene();
     for(var i=0; i<elements.length; i++){
         if (elements[i].classename == "dragdrop")
             elements[i].dragdroped = false;
@@ -189,10 +189,10 @@ ManagerLevel.prototype.offDragdropFlag = function () {
  * @method
  * @param {float} aceleration
  */
-ManagerLevel.prototype.createNewEnemy = function (aceleration) {
+ManagerScene.prototype.createNewEnemy = function (aceleration) {
     enemy = new Enemy("enemyred", Math.random()*500, -50, "enemy");
     enemy.aceleration = aceleration + 0.2;
-    this.levels[this.currentLevel].objects.push(enemy);
+    this.scenes[this.currentScene].objects.push(enemy);
 }
 
 /**
@@ -200,7 +200,7 @@ ManagerLevel.prototype.createNewEnemy = function (aceleration) {
  * Remove o inimigo do jogo, adiciona score e cria um novo inimigo
  * @param {GameObject }object
  */
-ManagerLevel.prototype.killEnemy = function (object) {
+ManagerScene.prototype.killEnemy = function (object) {
     this.addScore("score");
     this.removeObject(object);
     this.createNewEnemy(object.aceleration);

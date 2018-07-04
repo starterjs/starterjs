@@ -13,7 +13,7 @@ StarterEngine = function (w,h) {
     window.onload = function(){
         window.canvas = document.getElementById("gamecanvas");
         window.ctx = canvas.getContext("2d");
-        this.mlevel = new ManagerLevel();
+        this.mlevel = new ManagerScene();
         this.mmouse = new ManagerMouse();
         this.loader = new ManagerLoader(function(){
             this.gameReady();
@@ -65,9 +65,9 @@ StarterEngine.prototype.beginLoad =function () {
  * @method
  */
 StarterEngine.prototype.startGame =function () {
-    this.mlevel.currentLevel = 0;
-    if((this.mlevel.levels.length) > 0 && (this.mlevel.currentLevel < this.mlevel.levels.length)) {
-        this.mlevel.levels[this.mlevel.currentLevel].startFunction();
+    this.mlevel.currentScene = 0;
+    if((this.mlevel.scenes.length) > 0 && (this.mlevel.currentScene < this.mlevel.scenes.length)) {
+        this.mlevel.scenes[this.mlevel.currentScene].startFunction();
         this.loopgame(ctx);
     }else{
         console.error("Você precisa adicionar ao menos um Level!")
@@ -113,10 +113,10 @@ StarterEngine.prototype.startTurtle = function () {
 
         //Isso pode ir para um World
 
-        var trutlelvl = new Levels();
+        var trutlelvl = new Scene();
         trutlelvl.setFunctionStart(setTurtle);
         //trutlelvl.clean = false;
-        se.mlevel.addLevel(trutlelvl);
+        se.mlevel.addScene(trutlelvl);
 
     }
 

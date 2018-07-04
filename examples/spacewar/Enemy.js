@@ -25,7 +25,7 @@ Enemy.prototype.update = function () {
         laser = new Bullet("lase2", 0, 0, 4);
         laser.setPosition(this.x, this.y + this.h + 10);
         laser.setFire(["player", "kill"]);
-        se.mlevel.getCurrentLevel().objects.push(laser);
+        se.mlevel.getCurrentScene().objects.push(laser);
         this.audioLaser.play();
     }
 

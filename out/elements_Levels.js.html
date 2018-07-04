@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: elements/Levels.js</title>
+    <title>JSDoc: Source: elements/Scene.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: elements/Levels.js</h1>
+    <h1 class="page-title">Source: elements/Scene.js</h1>
 
     
 
@@ -31,7 +31,7 @@
  * @param {Array} objects - lista de objetos do level
  * @constructor
  */
-function Levels(objects) {
+function Scene(objects) {
     this.objects = [];
 
     if(objects != undefined)
@@ -39,27 +39,30 @@ function Levels(objects) {
 
     this.clean = true;
 
-    se.mlevel.addLevel(this);
+    se.mlevel.addScene(this);
 
 }
 
 /**
  * Adiciona um objeto ao level
+ * @method
  * @param {GameObject} object - Objeto a ser adicionado no level
  */
-Levels.prototype.addObjects = function(object){
+Scene.prototype.addObjects = function(object){
     this.objects.push(object);
 }
 
 /**
  * Função inicial do level, deve ser sobreescrita pelo usuário
+ * @method
  */
-Levels.prototype.startFunction = function () {};
+Scene.prototype.startFunction = function () {};
 
 /**
  * Imprime todos os elementos do level
+ * @method
  */
-Levels.prototype.print = function () {
+Scene.prototype.print = function () {
 
     //sort by z-index
     this.objects.sort(function(a,b){
@@ -79,24 +82,27 @@ Levels.prototype.print = function () {
 
 /**
  * Configura a função inicial do level
+ * @method
  * @param callback
  */
-Levels.prototype.setFunctionStart = function(callback){
+Scene.prototype.setFunctionStart = function(callback){
     this.startFunction  = callback;
 };
 
 /**
  * Configura os objetos do level
+ * @method
  * @param {Array} objects - lista de objetos do level
  */
-Levels.prototype.setObjects = function (objects) {
+Scene.prototype.setObjects = function (objects) {
     this.objects = objects;
 }
 
 /**
- * todo precisa documentar
+ * Pega todos os objetos do level
+ * @method
  */
-Levels.prototype.getObjects = function () {
+Scene.prototype.getObjects = function () {
     return this.objects;
 }</code></pre>
         </article>
@@ -108,13 +114,13 @@ Levels.prototype.getObjects = function () {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Background.html">Background</a></li><li><a href="Bullet.html">Bullet</a></li><li><a href="Button.html">Button</a></li><li><a href="Car.html">Car</a></li><li><a href="Circle.html">Circle</a></li><li><a href="DragDrop.html">DragDrop</a></li><li><a href="GameObject.html">GameObject</a></li><li><a href="Geometric.html">Geometric</a></li><li><a href="InputText.html">InputText</a></li><li><a href="Levels.html">Levels</a></li><li><a href="ManagerInputs.html">ManagerInputs</a></li><li><a href="ManagerLevel.html">ManagerLevel</a></li><li><a href="ManagerLoader.html">ManagerLoader</a></li><li><a href="ManagerStorage.html">ManagerStorage</a></li><li><a href="MultDirections.html">MultDirections</a></li><li><a href="Plaftorm.html">Plaftorm</a></li><li><a href="Rect.html">Rect</a></li><li><a href="Sound.html">Sound</a></li><li><a href="Sprite.html">Sprite</a></li><li><a href="StarterEngine.html">StarterEngine</a></li><li><a href="Text.html">Text</a></li><li><a href="Triangle.html">Triangle</a></li><li><a href="Turtle.html">Turtle</a></li></ul><h3>Global</h3><ul><li><a href="global.html#black">black</a></li><li><a href="global.html#blue">blue</a></li><li><a href="global.html#cian">cian</a></li><li><a href="global.html#gray">gray</a></li><li><a href="global.html#green">green</a></li><li><a href="global.html#orange">orange</a></li><li><a href="global.html#purple">purple</a></li><li><a href="global.html#red">red</a></li><li><a href="global.html#white">white</a></li><li><a href="global.html#yellow">yellow</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Background.html">Background</a></li><li><a href="Bullet.html">Bullet</a></li><li><a href="Button.html">Button</a></li><li><a href="Car.html">Car</a></li><li><a href="Circle.html">Circle</a></li><li><a href="DragDrop.html">DragDrop</a></li><li><a href="GameObject.html">GameObject</a></li><li><a href="Geometric.html">Geometric</a></li><li><a href="InputText.html">InputText</a></li><li><a href="Levels.html">Scene</a></li><li><a href="ManagerInputs.html">ManagerInputs</a></li><li><a href="ManagerLevel.html">ManagerScene</a></li><li><a href="ManagerLoader.html">ManagerLoader</a></li><li><a href="ManagerMouse.html">ManagerMouse</a></li><li><a href="ManagerStorage.html">ManagerStorage</a></li><li><a href="MultDirections.html">MultDirections</a></li><li><a href="Plaftorm.html">Plaftorm</a></li><li><a href="Rect.html">Rect</a></li><li><a href="Score.html">Score</a></li><li><a href="Sound.html">Sound</a></li><li><a href="Sprite.html">Sprite</a></li><li><a href="StarterEngine.html">StarterEngine</a></li><li><a href="Text.html">Text</a></li><li><a href="Triangle.html">Triangle</a></li><li><a href="Turtle.html">Turtle</a></li></ul><h3>Global</h3><ul><li><a href="global.html#black">black</a></li><li><a href="global.html#blue">blue</a></li><li><a href="global.html#cian">cian</a></li><li><a href="global.html#gray">gray</a></li><li><a href="global.html#green">green</a></li><li><a href="global.html#orange">orange</a></li><li><a href="global.html#purple">purple</a></li><li><a href="global.html#red">red</a></li><li><a href="global.html#white">white</a></li><li><a href="global.html#yellow">yellow</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Jun 29 2018 02:10:01 GMT-0300 (Hora oficial do Brasil)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Jul 03 2018 18:57:57 GMT-0300 (Hora oficial do Brasil)
 </footer>
 
 <script> prettyPrint(); </script>

@@ -10,12 +10,12 @@ ordem v 0.9.0:
 
 elements/GameObject.js
 elements/Background.js
-elements/Levels.js	 
+elements/Scene.js
 behaviors/Bullet.js   
 managers/ManagerStorage.js
 managers/ManagerLoader.js
 managers/ManagerKeyboard.js
-managers/ManagerLevel.js
+managers/ManagerScene.js
 scripts/gui/Text.js
 scripts/gui/InputText.js
 scripts/forms/Geometric.js
@@ -37,7 +37,7 @@ MultDirections.js
 Platform.js 
 Animation 
 Background.js 
-Levels.js 
+Scene.js
 Sound.js 
 Sprite.js 
 Circle.js 
@@ -49,7 +49,7 @@ InputText.js
 Score.js
 Text.js 
 ManagerKeyboard.js 
-ManagerLevel.js 
+ManagerScene.js
 ManagerLoader.js 
 ManagerMouse.js 
 ManagerStorage.js 
