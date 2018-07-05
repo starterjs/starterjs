@@ -19,7 +19,7 @@ ManagerMouse.prototype.start = function () {
         var x = event.pageX - canvas.offsetLeft,
             y = event.pageY - canvas.offsetTop;
 
-        var objects = se.mlevel.getObjectsCurrentLevel();
+        var objects = se.mlevel.getObjectsCurrentScene();
 
         for(var i = 0; i < objects.length; i++) {
             element = objects[i];

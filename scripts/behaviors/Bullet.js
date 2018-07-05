@@ -52,17 +52,17 @@ Bullet.prototype.setFire = function (fire) {
 Bullet.prototype.update = function () {
     //se passar sair da tela, remova
     if((this.y < 0) || (this.y > canvas.height))
-        se.mlevel.levels[this.linklevel].objects.splice(se.mlevel.levels[this.linklevel].objects.indexOf(this), 1);
+        se.mlevel.scenes[this.linklevel].objects.splice(se.mlevel.scenes[this.linklevel].objects.indexOf(this), 1);
 
     //movimento vertical
     this.y+=this.velocity;
 
     //verifica colisao
-    for(var i =0; i < se.mlevel.getCurrentLevel().objects.length; i++) {
+    for(var i =0; i < se.mlevel.getCurrentScene().objects.length; i++) {
         if(this.isremoving)
             continue;
 
-        var ret2 = se.mlevel.getCurrentLevel().objects[i];
+        var ret2 = se.mlevel.getCurrentScene().objects[i];
         for (var j = 0; j < this.nofire.length; j++){
             if (ret2.classename == this.nofire[j]) {
                 continue;

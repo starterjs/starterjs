@@ -1,7 +1,7 @@
 const se = new StarterEngine();
 
 se.gameReady = function() {
-    l = new Levels();
+    l = new Scene();
     l.setFunctionStart(startLevel);
 };
 

@@ -28,7 +28,7 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>Sound<span class="signature">()</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>Sound<span class="signature">(audio)</span><span class="type-signature"></span></h2>
         
     
 </header>
@@ -41,7 +41,7 @@
     
 
     
-    <h4 class="name" id="Sound"><span class="type-signature"></span>new Sound<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Sound"><span class="type-signature"></span>new Sound<span class="signature">(audio)</span><span class="type-signature"></span></h4>
     
 
     
@@ -49,7 +49,8 @@
 
 
 <div class="description">
-    todo: documentar essa classe
+    Representa um objeto do tipo som, permite o controle do som (play, pause, stop e outros) attravés
+da api howler.
 </div>
 
 
@@ -58,6 +59,55 @@
 
 
 
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>audio</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">caminho do arquivo de áudio</td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -93,7 +143,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="elements_Sound.js.html">elements/Sound.js</a>, <a href="elements_Sound.js.html#line5">line 5</a>
+        <a href="elements_Sound.js.html">elements/Sound.js</a>, <a href="elements_Sound.js.html#line7">line 7</a>
     </li></ul></dd>
     
 
@@ -139,6 +189,597 @@
     
 
     
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="isPlaying"><span class="type-signature"></span>isPlaying<span class="signature">()</span><span class="type-signature"> &rarr; {float}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Verifica se o som esta tocando
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="elements_Sound.js.html">elements/Sound.js</a>, <a href="elements_Sound.js.html#line57">line 57</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    true se o som estiver tocando
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">float</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="pause"><span class="type-signature"></span>pause<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Pausa o som
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="elements_Sound.js.html">elements/Sound.js</a>, <a href="elements_Sound.js.html#line31">line 31</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="play"><span class="type-signature"></span>play<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Toca o som
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="elements_Sound.js.html">elements/Sound.js</a>, <a href="elements_Sound.js.html#line15">line 15</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="playInLoop"><span class="type-signature"></span>playInLoop<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Toca o som em loop
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="elements_Sound.js.html">elements/Sound.js</a>, <a href="elements_Sound.js.html#line23">line 23</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="setVolume"><span class="type-signature"></span>setVolume<span class="signature">(volume)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Configura volume
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>volume</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">float</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="elements_Sound.js.html">elements/Sound.js</a>, <a href="elements_Sound.js.html#line48">line 48</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="stop"><span class="type-signature"></span>stop<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Para o som
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="elements_Sound.js.html">elements/Sound.js</a>, <a href="elements_Sound.js.html#line39">line 39</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
 
     
 
@@ -153,13 +794,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Background.html">Background</a></li><li><a href="Bullet.html">Bullet</a></li><li><a href="Button.html">Button</a></li><li><a href="Car.html">Car</a></li><li><a href="Circle.html">Circle</a></li><li><a href="DragDrop.html">DragDrop</a></li><li><a href="GameObject.html">GameObject</a></li><li><a href="Geometric.html">Geometric</a></li><li><a href="InputText.html">InputText</a></li><li><a href="Levels.html">Levels</a></li><li><a href="ManagerInputs.html">ManagerInputs</a></li><li><a href="ManagerLevel.html">ManagerLevel</a></li><li><a href="ManagerLoader.html">ManagerLoader</a></li><li><a href="ManagerStorage.html">ManagerStorage</a></li><li><a href="MultDirections.html">MultDirections</a></li><li><a href="Plaftorm.html">Plaftorm</a></li><li><a href="Rect.html">Rect</a></li><li><a href="Sound.html">Sound</a></li><li><a href="Sprite.html">Sprite</a></li><li><a href="StarterEngine.html">StarterEngine</a></li><li><a href="Text.html">Text</a></li><li><a href="Triangle.html">Triangle</a></li><li><a href="Turtle.html">Turtle</a></li></ul><h3>Global</h3><ul><li><a href="global.html#black">black</a></li><li><a href="global.html#blue">blue</a></li><li><a href="global.html#cian">cian</a></li><li><a href="global.html#gray">gray</a></li><li><a href="global.html#green">green</a></li><li><a href="global.html#orange">orange</a></li><li><a href="global.html#purple">purple</a></li><li><a href="global.html#red">red</a></li><li><a href="global.html#white">white</a></li><li><a href="global.html#yellow">yellow</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Background.html">Background</a></li><li><a href="Bullet.html">Bullet</a></li><li><a href="Button.html">Button</a></li><li><a href="Car.html">Car</a></li><li><a href="Circle.html">Circle</a></li><li><a href="DragDrop.html">DragDrop</a></li><li><a href="GameObject.html">GameObject</a></li><li><a href="Geometric.html">Geometric</a></li><li><a href="InputText.html">InputText</a></li><li><a href="Levels.html">Scene</a></li><li><a href="ManagerInputs.html">ManagerInputs</a></li><li><a href="ManagerLevel.html">ManagerScene</a></li><li><a href="ManagerLoader.html">ManagerLoader</a></li><li><a href="ManagerMouse.html">ManagerMouse</a></li><li><a href="ManagerStorage.html">ManagerStorage</a></li><li><a href="MultDirections.html">MultDirections</a></li><li><a href="Plaftorm.html">Plaftorm</a></li><li><a href="Rect.html">Rect</a></li><li><a href="Score.html">Score</a></li><li><a href="Sound.html">Sound</a></li><li><a href="Sprite.html">Sprite</a></li><li><a href="StarterEngine.html">StarterEngine</a></li><li><a href="Text.html">Text</a></li><li><a href="Triangle.html">Triangle</a></li><li><a href="Turtle.html">Turtle</a></li></ul><h3>Global</h3><ul><li><a href="global.html#black">black</a></li><li><a href="global.html#blue">blue</a></li><li><a href="global.html#cian">cian</a></li><li><a href="global.html#gray">gray</a></li><li><a href="global.html#green">green</a></li><li><a href="global.html#orange">orange</a></li><li><a href="global.html#purple">purple</a></li><li><a href="global.html#red">red</a></li><li><a href="global.html#white">white</a></li><li><a href="global.html#yellow">yellow</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Jun 29 2018 02:10:02 GMT-0300 (Hora oficial do Brasil)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Jul 03 2018 18:57:58 GMT-0300 (Hora oficial do Brasil)
 </footer>
 
 <script> prettyPrint(); </script>

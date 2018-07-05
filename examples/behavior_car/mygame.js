@@ -12,7 +12,7 @@ se.setResources = function () {
 se.gameReady = function() {
 
     //Leve 2 (Menu)
-    var menu = new Levels();
+    var menu = new Scene();
     menu.setFunctionStart(setMenu);
 	
 }

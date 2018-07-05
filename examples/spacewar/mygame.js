@@ -21,15 +21,15 @@ se.gameReady = function() {
 
 
     //Leve 2 (Menu)
-    var menu = new Levels();
+    var menu = new Scene();
     menu.setFunctionStart(setMenu);
 
     //Level 1 (jogo)
-    var jogo= new Levels();
+    var jogo= new Scene();
     jogo.setFunctionStart(setLevel1);
 
-    this.mlevel.addLevel(menu);
-    this.mlevel.addLevel(jogo);
+    this.mlevel.addScene(menu);
+    this.mlevel.addScene(jogo);
 
     //storage
     if(!se.storage.getItem("score1"))
@@ -62,7 +62,7 @@ function setMenu(){
     play.update = function () {
         if(se.teclado.ESPACO){
             se.mlevel.nameplayer =  input_nameplayer.text;
-            se.mlevel.loadLevel(1);
+            se.mlevel.loadScene(1);
         }
     }
 

@@ -93,7 +93,7 @@ Player.prototype.createFire = function () {
         //laser.x = this.x + this.w / 2 - laser.w / 2;
         //laser.y = this.y - laser.h;
 
-        se.mlevel.getCurrentLevel().addObjects(laser);
+        se.mlevel.getCurrentScene().addObjects(laser);
         this.audioLaser.play();
         this.gunready = false;
     }

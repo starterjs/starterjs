@@ -46,7 +46,7 @@ MultDirections.prototype.print = function (){
 
     ctx.translate(-transx, -transy);
 
-    ctx.drawImage(this.sprite, this.x, this.y, this.w, this.h);
+    GameObject.prototype.print.call(this);
 
     ctx.restore();
 

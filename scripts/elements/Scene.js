@@ -3,7 +3,7 @@
  * @param {Array} objects - lista de objetos do level
  * @constructor
  */
-function Levels(objects) {
+function Scene(objects) {
     this.objects = [];
 
     if(objects != undefined)
@@ -11,7 +11,7 @@ function Levels(objects) {
 
     this.clean = true;
 
-    se.mlevel.addLevel(this);
+    se.mlevel.addScene(this);
 
 }
 
@@ -20,7 +20,7 @@ function Levels(objects) {
  * @method
  * @param {GameObject} object - Objeto a ser adicionado no level
  */
-Levels.prototype.addObjects = function(object){
+Scene.prototype.addObjects = function(object){
     this.objects.push(object);
 }
 
@@ -28,13 +28,13 @@ Levels.prototype.addObjects = function(object){
  * Função inicial do level, deve ser sobreescrita pelo usuário
  * @method
  */
-Levels.prototype.startFunction = function () {};
+Scene.prototype.startFunction = function () {};
 
 /**
  * Imprime todos os elementos do level
  * @method
  */
-Levels.prototype.print = function () {
+Scene.prototype.print = function () {
 
     //sort by z-index
     this.objects.sort(function(a,b){
@@ -57,7 +57,7 @@ Levels.prototype.print = function () {
  * @method
  * @param callback
  */
-Levels.prototype.setFunctionStart = function(callback){
+Scene.prototype.setFunctionStart = function(callback){
     this.startFunction  = callback;
 };
 
@@ -66,7 +66,7 @@ Levels.prototype.setFunctionStart = function(callback){
  * @method
  * @param {Array} objects - lista de objetos do level
  */
-Levels.prototype.setObjects = function (objects) {
+Scene.prototype.setObjects = function (objects) {
     this.objects = objects;
 }
 
@@ -74,6 +74,6 @@ Levels.prototype.setObjects = function (objects) {
  * Pega todos os objetos do level
  * @method
  */
-Levels.prototype.getObjects = function () {
+Scene.prototype.getObjects = function () {
     return this.objects;
 }

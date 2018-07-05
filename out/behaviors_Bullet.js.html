@@ -28,6 +28,7 @@
         <article>
             <pre class="prettyprint source linenums"><code>/**
  * Representa um projétil
+ * @class
  * @extends GameObject
  * @param sprite
  * @param {string} sprite - Nome do sprite do background
@@ -38,7 +39,6 @@
  * @param {int} w - Largura do sprite
  * @param {int} h - Altura do sprite
  * @constructor
- * @todo Implementar a rotacao
  */
 function Bullet(sprite, x , y, v, r, h, w) {
     GameObject.call(this, sprite, x, y, "bullet", h,w);
@@ -55,6 +55,7 @@ Bullet.prototype = Object.create(GameObject.prototype);
 
 /**
  * Configura os elementos que não terão colisão
+ * @method
  * @param {string} nofire - nome de gameobject
  */
 Bullet.prototype.setNoFire = function (nofire) {
@@ -63,6 +64,7 @@ Bullet.prototype.setNoFire = function (nofire) {
 
 /**
  * Configura os elementos que terão colisão
+ * @method
  * @param {Array} fire - um vetor de 2 dimensões [ {string} nome, {function} função]
  */
 Bullet.prototype.setFire = function (fire) {
@@ -71,23 +73,24 @@ Bullet.prototype.setFire = function (fire) {
 
 
 /**
- * Update do projétil
+ * Atualiza o objeto Projétil
+ * @method
  * @override
  */
 Bullet.prototype.update = function () {
     //se passar sair da tela, remova
     if((this.y &lt; 0) || (this.y > canvas.height))
-        se.mlevel.levels[this.linklevel].objects.splice(se.mlevel.levels[this.linklevel].objects.indexOf(this), 1);
+        se.mlevel.scenes[this.linklevel].objects.splice(se.mlevel.scenes[this.linklevel].objects.indexOf(this), 1);
 
     //movimento vertical
     this.y+=this.velocity;
 
     //verifica colisao
-    for(var i =0; i &lt; se.mlevel.getCurrentLevel().objects.length; i++) {
+    for(var i =0; i &lt; se.mlevel.getCurrentScene().objects.length; i++) {
         if(this.isremoving)
             continue;
 
-        var ret2 = se.mlevel.getCurrentLevel().objects[i];
+        var ret2 = se.mlevel.getCurrentScene().objects[i];
         for (var j = 0; j &lt; this.nofire.length; j++){
             if (ret2.classename == this.nofire[j]) {
                 continue;
@@ -115,6 +118,7 @@ Bullet.prototype.update = function () {
 
 /**
  * Remove o projétil do jogo
+ * @method
  */
 Bullet.prototype.remove = function () {
     if(this.isremoving)
@@ -132,13 +136,13 @@ Bullet.prototype.remove = function () {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Background.html">Background</a></li><li><a href="Bullet.html">Bullet</a></li><li><a href="Button.html">Button</a></li><li><a href="Car.html">Car</a></li><li><a href="Circle.html">Circle</a></li><li><a href="DragDrop.html">DragDrop</a></li><li><a href="GameObject.html">GameObject</a></li><li><a href="Geometric.html">Geometric</a></li><li><a href="InputText.html">InputText</a></li><li><a href="Levels.html">Levels</a></li><li><a href="ManagerInputs.html">ManagerInputs</a></li><li><a href="ManagerLevel.html">ManagerLevel</a></li><li><a href="ManagerLoader.html">ManagerLoader</a></li><li><a href="ManagerStorage.html">ManagerStorage</a></li><li><a href="MultDirections.html">MultDirections</a></li><li><a href="Plaftorm.html">Plaftorm</a></li><li><a href="Rect.html">Rect</a></li><li><a href="Sound.html">Sound</a></li><li><a href="Sprite.html">Sprite</a></li><li><a href="StarterEngine.html">StarterEngine</a></li><li><a href="Text.html">Text</a></li><li><a href="Triangle.html">Triangle</a></li><li><a href="Turtle.html">Turtle</a></li></ul><h3>Global</h3><ul><li><a href="global.html#black">black</a></li><li><a href="global.html#blue">blue</a></li><li><a href="global.html#cian">cian</a></li><li><a href="global.html#gray">gray</a></li><li><a href="global.html#green">green</a></li><li><a href="global.html#orange">orange</a></li><li><a href="global.html#purple">purple</a></li><li><a href="global.html#red">red</a></li><li><a href="global.html#white">white</a></li><li><a href="global.html#yellow">yellow</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Background.html">Background</a></li><li><a href="Bullet.html">Bullet</a></li><li><a href="Button.html">Button</a></li><li><a href="Car.html">Car</a></li><li><a href="Circle.html">Circle</a></li><li><a href="DragDrop.html">DragDrop</a></li><li><a href="GameObject.html">GameObject</a></li><li><a href="Geometric.html">Geometric</a></li><li><a href="InputText.html">InputText</a></li><li><a href="Levels.html">Scene</a></li><li><a href="ManagerInputs.html">ManagerInputs</a></li><li><a href="ManagerLevel.html">ManagerScene</a></li><li><a href="ManagerLoader.html">ManagerLoader</a></li><li><a href="ManagerMouse.html">ManagerMouse</a></li><li><a href="ManagerStorage.html">ManagerStorage</a></li><li><a href="MultDirections.html">MultDirections</a></li><li><a href="Plaftorm.html">Plaftorm</a></li><li><a href="Rect.html">Rect</a></li><li><a href="Score.html">Score</a></li><li><a href="Sound.html">Sound</a></li><li><a href="Sprite.html">Sprite</a></li><li><a href="StarterEngine.html">StarterEngine</a></li><li><a href="Text.html">Text</a></li><li><a href="Triangle.html">Triangle</a></li><li><a href="Turtle.html">Turtle</a></li></ul><h3>Global</h3><ul><li><a href="global.html#black">black</a></li><li><a href="global.html#blue">blue</a></li><li><a href="global.html#cian">cian</a></li><li><a href="global.html#gray">gray</a></li><li><a href="global.html#green">green</a></li><li><a href="global.html#orange">orange</a></li><li><a href="global.html#purple">purple</a></li><li><a href="global.html#red">red</a></li><li><a href="global.html#white">white</a></li><li><a href="global.html#yellow">yellow</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Jun 29 2018 02:10:01 GMT-0300 (Hora oficial do Brasil)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Jul 03 2018 18:57:57 GMT-0300 (Hora oficial do Brasil)
 </footer>
 
 <script> prettyPrint(); </script>
