@@ -100,6 +100,9 @@ StarterEngine.prototype.gameReady = function() {};
 StarterEngine.prototype.setResources =function () {};
 
 
+/**
+ * Iniciar as conifguração iniciais para o uso do módulo Turtle
+ */
 StarterEngine.prototype.startTurtle = function () {
 
     this.setResources = function () {
@@ -108,21 +111,18 @@ StarterEngine.prototype.startTurtle = function () {
     };
 
 
-//Quando o loading acabar
+    //Quando o loading acabar
     this.gameReady = function() {
-
-        //Isso pode ir para um World
 
         var trutlelvl = new Scene();
         trutlelvl.setFunctionStart(setTurtle);
-        //trutlelvl.clean = false;
-        se.mlevel.addScene(trutlelvl);
 
     }
 
-
-
 }
+
+
+
 //Request Animate
 window.requestAnimFrame = (function(callback) {
     return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||

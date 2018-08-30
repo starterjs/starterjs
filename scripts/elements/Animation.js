@@ -11,10 +11,14 @@ function Animation(sprites) {
     this.currentsprite = 0;
     this.timesprite = 1;
     this.start();
+	
+	
 }
 
 Animation.prototype.start = function () {
-    _this = this;
+	
+    var _this = this;
+	
     window.setTimeout(
         function(){
             _this.update(_this);
@@ -25,7 +29,8 @@ Animation.prototype.start = function () {
 
 Animation.prototype.update = function (_this) {
 
-    if(_this.getCurrentIndexSprite() < this.sprites.length-1)
+    console.log(_this)
+    if(_this.getCurrentIndexSprite() < _this.sprites.length-1)
         _this.nextSprite();
     else
         _this.setCurrentIndexSprite(0);

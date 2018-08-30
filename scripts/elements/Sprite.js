@@ -25,6 +25,7 @@ Sprite.prototype.update = function () {
 Sprite.prototype.print = function () {
 
     ctx.save();
+
     if(this.mirred){
       ctx.translate(canvas.width/2,0);
       ctx.scale(-1, 1);
@@ -90,18 +91,13 @@ Sprite.prototype.print = function () {
         text_temp = this.stackText.shift();
 
         if(text_temp[2] == "say")
-            this.sayForSeconds(text_temp[0], text_temp[1]);
+            this.startSayForSeconds(text_temp);
 
         else if(text_temp[2] == "think")
-            this.thinkForSeconds(text_temp[0], text_temp[1]);
+            this.startThinkForSeconds(text_temp);
 
         else if(text_temp[2] == "wait"){
-
-            this.timewait = true;
-            var _this = this;
-            window.setTimeout(function () {
-                _this.timewait = false;
-            }, text_temp[1]*1000);
+           this.startWait(text_temp[1]);
         }
     }
 
@@ -109,50 +105,81 @@ Sprite.prototype.print = function () {
 
 }
 
+/**
+ * Executa a fala do Sprite
+ * @param text {String} - texto da fala
+ */
 Sprite.prototype.say = function (text) {
     this.effects = "say";
     this.text= text;
 }
 
+/**
+ * Limpa
+ * @param text
+ * @param secunds
+ */
 Sprite.prototype.cleanEffects = function (text, secunds) {
    this.effects = "none"
 }
 
+/**
+ * Cadastra uma fala com tempo na pilha de falas
+ * @param text - texto da fala
+ * @param secunds - tempo da fala
+ */
 Sprite.prototype.sayForSeconds = function (text, secunds) {
-
-    if((this.effects != "none")  || (this.timewait)) {
         this.stackText.push([text, secunds, "say"]);
-        return;
-    }
 
-    this.say(text);
-    var _this = this;
-    window.setTimeout(function () {
-        _this.effects = "none";
-    }, secunds*1000);
 }
 
 
+/**
+ * Executa uma fala com tempo
+ * @param text {Array} - array com texto e tempo da fala
+ */
+Sprite.prototype.startSayForSeconds = function (text) {
+     this.say(text[0]);
+     var _this = this;
+     window.setTimeout(function () {
+         _this.effects = "none";
+     }, text[1]*1000);
+}
+
+/**
+ * Executa a fala do Sprite
+ * @param text {String} - texto do pensamento
+ */
 Sprite.prototype.think = function (text) {
     this.text= text;
     this.effects = "think";
 }
 
+/**
+ * Cadastra  um pensamento com tempo
+ * @param text - texto da do pensamento
+ * @param secunds - tempo do pensamento
+ */
 Sprite.prototype.thinkForSeconds = function (text, secunds) {
+    this.stackText.push([text, secunds, "think"]);
 
-    if((this.effects != "none") || (this.timewait)){
-        this.stackText.push([text, secunds, "think"]);
-        return;
-    }
-
-    this.think(text);
-
-    var _this = this;
-
-    window.setTimeout(function () {
-        _this.effects = "none";
-    }, secunds*1000);
 }
+
+/**
+ * Executa um pensamento com tempo
+ * @param text {Array} - array com texto e tempo da fala
+ */
+Sprite.prototype.startThinkForSeconds = function (text) {
+
+        this.think(text[0]);
+
+        var _this = this;
+
+        window.setTimeout(function () {
+            _this.effects = "none";
+        }, text[1]*1000);
+}
+
 
 /**
  * Muda o tamanho do sprite com base na porcentagem
@@ -187,7 +214,13 @@ Sprite.prototype.changeSizeTo = function (size) {
    this.y -= size/2;
 }
 
-
+/**
+ * Imprime a fala na tela
+ * @param x {int} - posição x do balão
+ * @param y {int} - posição x do balão
+ * @param width {float} - largura do balão
+ * @param height {float} - altura do balão
+ */
 Sprite.prototype.printTalkForm  = function(x, y, width, height) {
 
         var radius = 5;
@@ -216,7 +249,13 @@ Sprite.prototype.printTalkForm  = function(x, y, width, height) {
         ctx.stroke();
 }
 
-
+/**
+ * Imprime o pensamento na tela
+ * @param x {int} - posição x do balão
+ * @param y {int} - posição x do balão
+ * @param width {float} - largura do balão
+ * @param height {float} - altura do balão
+ */
 Sprite.prototype.printThinkForm  = function(x, y, width, height) {
 
     var radius = 5;
@@ -258,17 +297,37 @@ Sprite.prototype.printThinkForm  = function(x, y, width, height) {
 
 }
 
+/**
+ * Cadastra um tempo de espera
+ * @param secunds
+ */
 Sprite.prototype.wait = function (secunds) {
-    if(this.effects == "none"){
-        this.timewait = true;
-        var _this = this;
-        window.setTimeout(function () {
-            _this.timewait = false;
-        }, secunds*1000);
-    }else
-        this.stackText.push(["", secunds, "wait"]);
+    this.stackText.push(["", secunds, "wait"]);
 }
 
+
+/**
+ * Executa um tempo de espera
+ * @param secunds
+ */
+Sprite.prototype.startWait = function (secunds) {
+    this.timewait = true;
+    var _this = this;
+    window.setTimeout(function () {
+        _this.timewait = false;
+        _this.effects = "none";
+    }, secunds*1000);
+
+}
+
+
+
+
+
+/**
+ * Espelha o sprite
+ * @param mirror
+ */
 Sprite.prototype.setMirror = function (mirror) {
     this.mirred = mirror;
     this.x = canvas.width - this.x;

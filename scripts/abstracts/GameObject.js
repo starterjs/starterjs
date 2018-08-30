@@ -1,7 +1,6 @@
 /**
  * Representa um Game Object
- * @param sprite
- * @param {string} sprite - Nome do sprite do background
+ * @param {array} sprite  - Array de caminhos dos sprites 
  * @param {int} x - Coordenada x do botão
  * @param {int} y - Coordenada y do botão
  * @param {string} classname - Nome da classe do objeto (grupo)
@@ -64,6 +63,7 @@ function GameObject(sprite, x, y, classename, w, h, r, z) {
                 }
             }
 
+			
             this.animation = new Animation(sprites);
 
         }else{

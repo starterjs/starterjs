@@ -3,13 +3,17 @@
  * @param {Array} objects - lista de objetos do level
  * @constructor
  */
-function Scene(objects) {
+function Scene(objects, isactive) {
     this.objects = [];
 
     if(objects != undefined)
         this.objects = objects;
 
     this.clean = true;
+    this.isActive = true;
+
+   if(typeof isactive === "boolean")
+        this.isActive = isactive;
 
     se.mlevel.addScene(this);
 
@@ -35,6 +39,9 @@ Scene.prototype.startFunction = function () {};
  * @method
  */
 Scene.prototype.print = function () {
+    //Se a cena não estiver ativa
+    if(this.isActive == false)
+        return;
 
     //sort by z-index
     this.objects.sort(function(a,b){
@@ -76,4 +83,12 @@ Scene.prototype.setObjects = function (objects) {
  */
 Scene.prototype.getObjects = function () {
     return this.objects;
+}
+
+/**
+ * Configura o estado da cena
+ * @param isActive
+ */
+Scene.prototype.setActive = function (isActive) {
+    this.isActive = isActive;
 }

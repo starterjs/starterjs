@@ -85,10 +85,9 @@ ManagerScene.prototype.getCurrentScene = function () {
 ManagerScene.prototype.print = function () {
   if(this.scenes[this.currentScene].clean) {
       ctx.save()
-      ctx.setTransform(1,0,0,1,0,0)
+      ctx.setTransform(1,0,0,1,0,0);
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.restore()
-     //console.log("is cleaning")
+      ctx.restore();
   }
     this.scenes[this.currentScene].print(ctx);
 }
