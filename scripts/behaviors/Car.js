@@ -9,6 +9,7 @@
  * @constructor
  */
 function Car(sprite, x, y, h, w) {
+
     GameObject.call(this, sprite, x,y,"car", h,w);
 
     this.buttonup = null;
@@ -46,7 +47,7 @@ Car.prototype.print = function (){
 
     ctx.translate(-transx, -transy);
 
-    ctx.drawImage(this.sprite, this.x, this.y, this.w, this.h);
+    ctx.drawImage(this.animation[this.currentAnimation].getCurrentSprite(), this.x, this.y, this.w, this.h);
 
     ctx.restore();
 

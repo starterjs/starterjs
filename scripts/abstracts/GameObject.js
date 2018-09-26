@@ -8,8 +8,8 @@
  * @param {int} h - Altura do sprite
  * @constructor
  */
-function GameObject(sprite, x, y, classename, w, h, r, z) {
-    this.sprite = null;
+function GameObject(animations, x, y, classename, w, h, r, z) {
+    //this.sprite = null;
 
     this.x = 0;
     if(x !=undefined)
@@ -37,47 +37,18 @@ function GameObject(sprite, x, y, classename, w, h, r, z) {
     if(r != undefined)
         this.r = r;
 
-    this.animation != null;
 
+    this.currentAnimation = 0;
 
-    if(sprite != undefined) {
+    if(animations != undefined) {
 
-        if(Array.isArray(sprite)){
+        this.animation = animations;
 
-            var sprites = [];
-
-            for(var i=0; i< sprite.length; i++){
-
-                var sprite_temp =  se.loader.getAssets(sprite[i]) ;
-
-                if((!sprite_temp instanceof Image) || (sprite_temp == null)){
-                    throw new Error("Ocorreu um erro ao carregar a imagem" + sprite_temp + ". Verifique o nome adicionado aos resources");
-                }else{
-                    sprites.push(sprite_temp);
-                    //this.currentsprite = 0;
-
-                    if(this.h == 0)
-                        this.h = sprite_temp.height;
-                    if(this.w == 0)
-                        this.w = sprite_temp.width;
-                }
-            }
-
-			
-            this.animation = new Animation(sprites);
-
-        }else{
-
-            this.sprite = se.loader.getAssets(sprite);
-            if((!this.sprite instanceof Image) || (this.sprite == null)){
-                throw new Error("Ocorreu um erro ao carregar a imagem" + sprite + ". Verifique o nome adicionado aos resources");
-            }else{
-                this.currentsprite = 0;
-                if(this.h == 0)
-                    this.h = this.sprite.height;
-                if(this.w == 0)
-                    this.w = this.sprite.width;
-            }
+        if(this.h == 0){
+            this.h = this.animation[this.currentAnimation].autoSize("h");
+        }
+        if (this.w == 0){
+            this.w = this.animation[this.currentAnimation].autoSize("w");
         }
     }
 
@@ -105,9 +76,7 @@ GameObject.prototype.update = function() {
 GameObject.prototype.print = function() {
 
     if(this.animation != null) {
-        ctx.drawImage(this.animation.getCurrentSprite(), this.x, this.y, this.w, this.h);
-    }else {
-        ctx.drawImage(this.sprite, this.x, this.y, this.w, this.h);
+        ctx.drawImage(this.animation[this.currentAnimation].getCurrentSprite(), this.x, this.y, this.w, this.h);
     }
 }
 
@@ -216,3 +185,5 @@ GameObject.prototype.translate = function(x, y) {
     this.x +=x;
     this.y+=y;
 }
+
+

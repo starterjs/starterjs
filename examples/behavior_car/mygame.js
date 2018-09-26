@@ -20,6 +20,7 @@ se.gameReady = function() {
 
 function setMenu(){
 
-    var bg = new  Background("background",0,0,canvas.height, canvas.width);
-	var car = new Car("car", 200, 200);
+    anim1 = new Animation(["car"]);
+    //var bg = new  Background("background",0,0,canvas.height, canvas.width);
+	var car = new Car([anim1], 200, 200);
 }

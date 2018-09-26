@@ -69,7 +69,7 @@ function Turtle() {
      * Imagem do turtle
      * @type {Image}
      */
-    this.imgturtle = new GameObject("turtle", 0,0, "turtle", 40,40);
+    this.imgturtle = new GameObject([new Animation(["turtle"])], 0,0, "turtle", 40,40);
 
     /**
      * Guarda a ultima cor para o comando mude cor por

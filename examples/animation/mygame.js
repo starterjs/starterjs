@@ -5,6 +5,7 @@ se.setResources = function () {
     //Add lista resource
     this.loader.addResource("scratch", "scratch.png", "image");
     this.loader.addResource("scratch2", "scratch2.png", "image");
+    this.loader.addResource("scratch3", "scratch3.png", "image");
 };
 
 
@@ -20,15 +21,20 @@ se.gameReady = function() {
 
 
 function setMenu(){
-    
-	scratch = new Sprite( ["scratch", "scratch2"] , 100,200);
+
+    anim1 = new Animation(["scratch", "scratch2"]);
+    anim2 = new Animation(["scratch", "scratch3"]);
+
+    scratch = new Sprite( [anim1, anim2] , 100,200);
+    scratch.nextAnimation();
+
 	scratch.sayForSeconds("Hello, this is Scratch?", 2);
     scratch.wait(2);
     scratch.sayForSeconds("Hum... ", 2);
     scratch.wait(2);
     scratch.sayForSeconds("Javascript  is love!", 2);
 
-    scratch2 = new Sprite("scratch" ,500,200);
+    scratch2 = new Sprite([anim1],500,200);
 
     scratch2.setMirror(true);
 

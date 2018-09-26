@@ -8,9 +8,9 @@
  * @param {int} h - Altura do sprite
  * @constructor
  */
-function MultDirections(sprite, x, y, h, w) {
+function MultDirections(animations, x, y, h, w) {
 
-    GameObject.call(this, sprite, x,y,"mult", h,w);
+    GameObject.call(this, animations, x,y,"mult", h,w);
 
     this.buttonup = null;
     this.buttondown = null;
@@ -23,6 +23,8 @@ function MultDirections(sprite, x, y, h, w) {
     this.speed = 1;
 
     this.setDefaultControll();
+
+    console.log(this.animation)
 
 }
 

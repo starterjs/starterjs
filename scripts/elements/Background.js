@@ -31,7 +31,7 @@ Background.prototype = Object.create(GameObject.prototype);
  * Imprime o background na tela
  */
 Background.prototype.print = function(ctx) {
-    var ptrn = ctx.createPattern(this.sprite, 'repeat');
+    var ptrn = ctx.createPattern(this.animation[0].getCurrentSprite(), 'repeat');
     ctx.fillStyle = ptrn;
     ctx.fillRect(0, 0, this.w, this.h);
 }

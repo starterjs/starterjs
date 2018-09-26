@@ -320,10 +320,6 @@ Sprite.prototype.startWait = function (secunds) {
 
 }
 
-
-
-
-
 /**
  * Espelha o sprite
  * @param mirror
@@ -332,3 +328,74 @@ Sprite.prototype.setMirror = function (mirror) {
     this.mirred = mirror;
     this.x = canvas.width - this.x;
 }
+
+/**
+* Avança para o próximo Sprite
+*/
+Sprite.prototype.nextSprite = function(){
+    this.setCurrentIndexSprite( this.getCurrentIndexSprite++ );
+}
+
+/**
+* Volta ao sprite anterior 
+*/
+
+Sprite.prototype.priorSprite = function(){
+    this.animation.setCurrentIndexSprite( this.getCurrentIndexSprite++ );
+}
+
+/**
+* Vai para o sprite de índice index
+@param {int} index - índice para o sprite
+*/
+Sprite.prototype.gotoSprite = function(index){
+    this.animation.setCurrentIndexSprite( index );
+}
+
+/**
+* Para a animação atual
+*/
+Sprite.prototype.stopAnimation = function(){
+	this.animation.stopAnimation();
+}
+
+
+/**
+* inicia a animação do incio ou de onde foi pausado
+*/
+Sprite.prototype.startAimation = function(){
+	this.animation.setCurrentSprite(0);
+	this.animation.startAnimation();
+}
+
+
+/**
+* Vai para a próxima animação
+*/
+Sprite.prototype.nextAnimation = function(){
+
+    if(this.currentAnimation < this.animation.length)
+        this.currentAnimation++;
+    else
+        this.currentAnimation = 0;
+
+
+    console.log(this.currentAnimation)
+
+}
+
+
+/**
+* Vai para animação anterior
+*/
+Sprite.prototype.priorAnimation = function(){
+    if(this.currentAnimation > 0)
+        this.currentAnimation--;
+    else
+        this.currentAnimation =  this.animation.length-1;
+}
+
+
+
+
+
