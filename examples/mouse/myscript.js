@@ -1,31 +1,28 @@
-//CRIIAR TESTES PARA O MOUSE
-
-
 const se = new StarterEngine();
 
 
 se.setResources = function () {
     //Add lista resource
-    this.loader.addResource("background", "Backgrounds/asfalto.png", "image");
-    this.loader.addResource("car", "car.png", "image");
+    this.loader.addResource("button", "car.png", "image");
 };
 
 
 //Quando o loading acabar
 se.gameReady = function() {
 
-    //Leve 2 (Menu)
     var menu = new Scene();
     menu.setFunctionStart(setTeste);
 
     this.mlevel.addScene(menu)
- 
 
 }
 
 
 function setTeste(){
 
+    button = new Button("button", 250,100);
+    button.setClick(function () {
+        alert("Clicado!");
+    });
 
-
-}
+};

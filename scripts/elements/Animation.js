@@ -22,19 +22,24 @@ function Animation(sprites) {
             }
         }
 
-    }else{
+    }
 
-        this.sprite = se.loader.getAssets(sprites);
+    /*else{
+
+        console.log(typeof sprites)
+        var sprite_temp = se.loader.getAssets(sprites);
         if((!this.sprite instanceof Image) || (this.sprite == null)){
             throw new Error("Ocorreu um erro ao carregar a imagem" + sprite + ". Verifique o nome adicionado aos resources");
         }else{
             this.currentsprite = 0;
+            this.sprites.push(sprite_temp);
+
             if(this.h == 0)
                 this.h = this.sprite.height;
             if(this.w == 0)
                 this.w = this.sprite.width;
         }
-    }
+    }*/
 
 
 
@@ -104,7 +109,7 @@ Animation.prototype.setInterval = function (interval) {
  * @param index
  */
 Animation.prototype.setCurrentIndexSprite = function (index) {
-    if(index < this.sprites.length-1)
+    if(index < this.sprites.length)
         this.currentsprite = index;
     else
         console.warn("Índice fora da faixa da aminação atual");

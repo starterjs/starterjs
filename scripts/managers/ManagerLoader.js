@@ -71,7 +71,7 @@ ManagerLoader.prototype.loading = function( ){
         return;
     }
 
-
+    //console.log(this.assetsList);
     for(var i = 0; i < this.assetsList.length; i++){
 
         //se for do tipo imagem
@@ -105,7 +105,7 @@ ManagerLoader.prototype.loading = function( ){
 
             var onload = function(){
 
-                //incrementa o contado
+                //incrementa o contador
                 this.checkAssetsList++;
                 //se o contatdo for igual ao tamanho dos assets a serem carregados
                 if(this.checkAssetsList == this.assetsList.length ){
@@ -124,7 +124,66 @@ ManagerLoader.prototype.loading = function( ){
                 audio = new Howl({ src: [this.starterfolder+this.assetsList[i][1]], onload: onload});
 
             this.assetsListLoaded.push(audio);
-        }
+
+
+        }else if(this.assetsList[i][2] == "text"){
+
+            var rawFile = new XMLHttpRequest();
+            rawFile.open("GET", this.folder+this.assetsList[i][1] , false);
+            rawFile.onreadystatechange = function ()
+            {
+                if(rawFile.readyState === 4)
+                {
+                    if(rawFile.status === 200 || rawFile.status == 0)
+                    {
+                        var allText = rawFile.responseText;
+                        this.assetsListLoaded.push(allText.split("\n"));
+                        //incrementa o contador
+                        this.checkAssetsList++;
+
+                    }else{
+                        console.log("erro")
+                    }
+                }
+            }.bind(this);
+
+            rawFile.send(null);
+
+		}else if(this.assetsList[i][2] == "csv"){
+
+        var rawFile = new XMLHttpRequest();
+        rawFile.open("GET", this.folder+this.assetsList[i][1] , false);
+        rawFile.onreadystatechange = function ()
+        {
+            if(rawFile.readyState === 4)
+            {
+                if(rawFile.status === 200 || rawFile.status == 0)
+                {
+                    arrayCSV = [];
+                    lineCSV = null;
+
+                    var allText = rawFile.responseText;
+
+                    //brake by line
+                    lineCSV = allText.split("\n");
+
+                    lineCSV.forEach(function (t) {
+                        //break by ;
+                        arrayCSV.push(t.split(";"));
+                    });
+
+                    this.assetsListLoaded.push(arrayCSV);
+
+      //              console.log(arrayCSV);
+                    //incrementa o contador
+                    this.checkAssetsList++;
+
+                }
+            }
+        }.bind(this);
+
+        rawFile.send(null);
+    }
     }
 
 

@@ -54,9 +54,15 @@ ManagerMouse.prototype.start = function () {
         _this.x = event.pageX - canvas.offsetLeft;
         _this.y = event.pageY - canvas.offsetTop;
 
+        var objects = se.mlevel.getObjetcsMovimentMouse();
+
+        for(var i = 0; i < objects.length; i++) {
+            objects[i].moveMouse(_this.x, _this.y);
+
+        }
 
 
-    }, false);
+        }, false);
 }
 
 

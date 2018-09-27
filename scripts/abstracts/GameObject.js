@@ -42,12 +42,26 @@ function GameObject(animations, x, y, classename, w, h, r, z) {
 
     if(animations != undefined) {
 
-        this.animation = animations;
+        if(Array.isArray(animations)) {
 
-        if(this.h == 0){
+            //verificando se algum elemento não é uma animação
+            animations.forEach(function(e){
+                if(e.constructor != Animation)
+                    throw new Error("Algum elemento do Array não é uma animação")
+            });
+
+            this.animation = animations;
+
+        //se animations for apenas uma string com o nome do sprite
+        }else if(typeof animations == "string"){
+            this.animation = [ new Animation([animations] )];
+        }
+
+
+        if (this.h == 0) {
             this.h = this.animation[this.currentAnimation].autoSize("h");
         }
-        if (this.w == 0){
+        if (this.w == 0) {
             this.w = this.animation[this.currentAnimation].autoSize("w");
         }
     }
@@ -186,4 +200,11 @@ GameObject.prototype.translate = function(x, y) {
     this.y+=y;
 }
 
+/**
+ * Executa função com base na posicao do mouse
+ * @param {int} x - coordenada x do mouse
+ * @param {int} y - coordenada y do mouse
+ */
+GameObject.prototype.moveMouse = function (x, y) {
 
+}

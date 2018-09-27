@@ -26,6 +26,7 @@ function ManagerScene() {
      */
     this.score = 0;
 
+    this.objectsMovimentMouse = [];
 
 }
 
@@ -181,6 +182,30 @@ ManagerScene.prototype.offDragdropFlag = function () {
             elements[i].dragdroped = false;
     }
 }
+
+/**
+ *
+ * @return {*}
+ */
+ManagerScene.prototype.getObjetcsMovimentMouse = function () {
+    return this.objectsMovimentMouse;
+};
+
+/**
+ *
+ * @return {Array}
+ */
+ManagerScene.prototype.clearObjetcsMovimentMouse = function () {
+    return this.objectsMovimentMouse;
+};
+
+/**
+ *
+ * @param element
+ */
+ManagerScene.prototype.addObjetcsMovimentMouse = function (element) {
+    this.objectsMovimentMouse.add(element);
+};
 
 
 /**

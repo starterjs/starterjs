@@ -30,7 +30,8 @@ Button.prototype = Object.create(GameObject.prototype);
  * @name Button.click
  */
 Button.prototype.click = function(){
-    this.clickFunction();
+    if(this.clickFunction != undefined)
+        this.clickFunction();
 }
 
 /**

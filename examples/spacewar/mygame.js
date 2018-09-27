@@ -38,25 +38,24 @@ se.gameReady = function() {
 }
 
 function setLevel1() {
-    bg = new Background([new Animation([ "background" ])] ,0,0,canvas.height, canvas.width);
+    bg = new Background("background" ,0,0,canvas.height, canvas.width);
 
-    player = new Player([new Animation(["shipblue"])], 300, 600,"player");
-
-    enemy =  new Enemy([new Animation(["enemyred"])], 250, 0, "enemy");
-    enemy2 = new Enemy([new Animation(["enemyred"])], 500, 0, "enemy");
-    score = new Score([new Animation(["score"])],"guiscore",600,20);
+    player = new Player("shipblue", 300, 600,"player");
+    enemy =  new Enemy("enemyred", 250, 0, "enemy");
+    enemy2 = new Enemy("enemyred", 500, 0, "enemy");
+    score = new Score("guiscore","guiscore",600,20);
 }
 
 
 function setMenu(){
 
     //*** MENU ***/
-    var bg = new  Background([new Animation([ "background" ])]);
+    var bg = new  Background("background");
 
-    var logo = new GameObject([new Animation(["logogame"])],0,0,"gui");
+    var logo = new GameObject("logogame",0,0,"gui");
     logo.setPosition(canvas.width/2 - logo.w/2, 20);
 
-    var play = new GameObject([new Animation(["play"])],0,0,"gui");
+    var play = new GameObject("play",0,0,"gui");
     play.setPosition(canvas.width/2 - play.w/2, 350);
 
     play.update = function () {
@@ -66,7 +65,7 @@ function setMenu(){
         }
     }
 
-    var ranking = new GameObject([new Animation(["labelrank"])] ,0,0,"gui");
+    var ranking = new GameObject("labelrank" ,0,0,"gui");
     ranking.setPosition(canvas.width/2 - ranking.w/2, 530);
 
     var scores= se.storage.getItemJSON("score1");

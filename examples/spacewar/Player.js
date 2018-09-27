@@ -1,5 +1,5 @@
 function Player(sprite, x, y,classename,  h, w) {
-    GameObject.call(this, sprite, x,y,"player", h,w);
+
     this.aceleration = 0;
     this.velmax = 5;
     this.gunready = true;
@@ -7,6 +7,9 @@ function Player(sprite, x, y,classename,  h, w) {
     this.life = 3;
     this.z = 99;
     this.audioLaser = new Sound("laser");
+
+    GameObject.call(this, sprite, x,y,"player", h,w);
+
 }
 
 //fazendo herança
@@ -86,6 +89,7 @@ Player.prototype.update = function () {
 Player.prototype.createFire = function () {
 
     if(this.gunready) {
+        //laser = new Bullet([new Animation(["lase1"])],0,0, -4);
         laser = new Bullet("lase1",0,0, -4);
         laser.setPosition(this.x + this.w / 2 - laser.w / 2, this.y - laser.h);
         laser.setFire(["enemy", "kill"]);
