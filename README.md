@@ -7,7 +7,7 @@ more. The Starter uses principles founded in major development environment for n
 *See more details in homepage [repository](https://github.com/starterjs/starterjs.github.io) or visit the [website](https://starterjs.github.io/).*
 
 
-# preliminary examples:
+## preliminary examples:
 
 *Creating Geometric Forms*
 https://starterjs.github.io/starterjs/examples/geometrics
