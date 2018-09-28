@@ -35,3 +35,6 @@ https://starterjs.github.io/starterjs/examples/csvfile
 
 *Reading Text File*
 https://starterjs.github.io/starterjs/examples/textfile
+
+*Reading XML File*
+https://starterjs.github.io/starterjs/examples/xmlfile
