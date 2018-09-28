@@ -141,6 +141,13 @@ ManagerLoader.prototype.loading = function( ){
                         //incrementa o contador
                         this.checkAssetsList++;
 
+                        if(this.checkAssetsList == this.assetsList.length ){
+                            this.print();
+                            setTimeout(this.callback, 2000);
+                        }else{
+                            this.print();
+                        }
+
                     }else{
                         console.log("erro")
                     }
@@ -151,39 +158,83 @@ ManagerLoader.prototype.loading = function( ){
 
 		}else if(this.assetsList[i][2] == "csv"){
 
-        var rawFile = new XMLHttpRequest();
-        rawFile.open("GET", this.folder+this.assetsList[i][1] , false);
-        rawFile.onreadystatechange = function ()
-        {
-            if(rawFile.readyState === 4)
+            var rawFile = new XMLHttpRequest();
+            rawFile.open("GET", this.folder+this.assetsList[i][1] , false);
+            rawFile.onreadystatechange = function ()
             {
-                if(rawFile.status === 200 || rawFile.status == 0)
+                if(rawFile.readyState === 4)
                 {
-                    arrayCSV = [];
-                    lineCSV = null;
+                    if(rawFile.status === 200 || rawFile.status == 0)
+                    {
+                        var arrayCSV = [];
+                        var lineCSV = null;
 
-                    var allText = rawFile.responseText;
+                        var allText = rawFile.responseText;
 
-                    //brake by line
-                    lineCSV = allText.split("\n");
+                        //brake by line
+                        lineCSV = allText.split("\n");
 
-                    lineCSV.forEach(function (t) {
-                        //break by ;
-                        arrayCSV.push(t.split(";"));
-                    });
+                        lineCSV.forEach(function (t) {
+                            //break by ;
+                            arrayCSV.push(t.split(";"));
+                        });
 
-                    this.assetsListLoaded.push(arrayCSV);
+                        this.assetsListLoaded.push(arrayCSV);
 
-      //              console.log(arrayCSV);
-                    //incrementa o contador
-                    this.checkAssetsList++;
+                        //incrementa o contador
+                        this.checkAssetsList++;
 
+                        if(this.checkAssetsList == this.assetsList.length ){
+                            this.print();
+                            setTimeout(this.callback, 2000);
+                        }else{
+                            this.print();
+                        }
+
+                    }
                 }
-            }
-        }.bind(this);
+            }.bind(this);
 
-        rawFile.send(null);
+            rawFile.send(null);
+    }else if(this.assetsList[i][2] == "xml"){
+
+            var rawFile = new XMLHttpRequest();
+            rawFile.open("GET", this.folder+this.assetsList[i][1] , false);
+            rawFile.onreadystatechange = function ()
+            {
+                if(rawFile.readyState === 4)
+                {
+                    if(rawFile.status === 200 || rawFile.status == 0)
+                    {
+
+                        var parser = new DOMParser();
+                        var xmlDoc = parser.parseFromString(rawFile.responseText,"text/xml");
+                        this.assetsListLoaded.push(xmlDoc);
+
+                        this.checkAssetsList++;
+
+                        if(this.checkAssetsList == this.assetsList.length ){
+                            this.print();
+                            setTimeout(this.callback, 2000);
+                        }else{
+                            this.print();
+                        }
+
+                    }else{
+                        console.log("erro")
+                    }
+                }
+            }.bind(this);
+
+            rawFile.send(null);
+
+
+
     }
+
+
+
+
     }
 
 

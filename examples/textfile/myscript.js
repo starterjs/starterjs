@@ -3,7 +3,7 @@ const se = new StarterEngine();
 
 se.setResources = function () {
     //Add lista resource
-    this.loader.addResource("scratch", "scratch.png", "image");
+
     this.loader.addResource("text", "text.txt", "text");
     this.loader.addResource("text2", "text2.txt", "text");
 

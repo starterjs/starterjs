@@ -4,7 +4,6 @@ se.setResources = function () {
     //Add lista resource
 
     //erro: csv only work with other resource as this
-    this.loader.addResource("background", "Backgrounds/asfalto.png", "image");
     this.loader.addResource("table", "table.csv", "csv");
 
 };
