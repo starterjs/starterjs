@@ -38,3 +38,17 @@ https://starterjs.github.io/starterjs/examples/textfile
 
 *Reading XML File*
 https://starterjs.github.io/starterjs/examples/xmlfile
+
+## Tutorials
+
+Later...
+
+#projects using Starter
+
+*Ábaco Simulator*
+https://github.com/LuisAraujo/Abaco-Simulator
+
+*Workshop on Games*
+https://github.com/LuisAraujo/oficina-starterjs
+
+
