@@ -43,7 +43,7 @@ https://starterjs.github.io/starterjs/examples/xmlfile
 
 Later...
 
-#projects using Starter
+# projects with Starterjs
 
 *Ábaco Simulator*
 https://github.com/LuisAraujo/Abaco-Simulator
