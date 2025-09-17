@@ -6,9 +6,11 @@
  * @param {string} classname - Nome da classe do objeto (grupo)
  * @param {int} w - Largura do sprite
  * @param {int} h - Altura do sprite
+ * @param {int} z - Profundidade
+ * @param {int} a - Alpha
  * @constructor
  */
-function GameObject(animations, x, y, classename, w, h, r, z) {
+function GameObject(animations, x, y, classename, w, h, r, z, a) {
     //this.sprite = null;
 
     this.x = 0;
@@ -36,6 +38,10 @@ function GameObject(animations, x, y, classename, w, h, r, z) {
     this.r = 0;
     if(r != undefined)
         this.r = r;
+
+    this.a = 1;
+    if(a != undefined)
+        this.a = a;
 
 
     this.currentAnimation = 0;
@@ -114,6 +120,30 @@ GameObject.prototype.getRotate = function () {
     return this.r;
 }
 
+
+/**
+ * todo precisa documentar
+ * Define o aplha do objeto
+ * @param {int} a - alpha
+ */
+GameObject.prototype.setAlpha = function (a) {
+    if( a > 1)
+        a = 1;
+    else if( a < 0)
+        a = 0;
+
+    this.a = a;
+}
+
+
+/**
+ * todo precisa documentar
+ * Retorna o alpha do objeto
+ * @return {int} a - alpha
+ */
+GameObject.prototype.getAlpha = function () {
+    return this.a;
+}
 
 
 /**

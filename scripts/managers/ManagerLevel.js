@@ -50,6 +50,19 @@ ManagerScene.prototype.loadScene =function (index) {
     this.getCurrentScene().startFunction();
 }
 
+
+/**
+ * todo precisa documentar
+ * Carrega um determinado level persistindo os objetos 
+ * @method
+ * @param {int} index
+ */
+ManagerScene.prototype.loadScenePersist =function (index) {
+    this.currentScene = index;
+    this.getCurrentScene().startFunction();
+}
+
+
 /**
  * Carrega o próximo level, seguindo a ordem do array de scenes
  * @method
