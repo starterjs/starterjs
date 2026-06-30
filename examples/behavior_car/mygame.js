@@ -19,8 +19,9 @@ se.gameReady = function() {
 
 
 function setMenu(){
-
     anim1 = new Animation(["car"]);
     var bg = new  Background("background",0,0,canvas.height, canvas.width);
 	var car = new Car([anim1], 200, 200);
+    var rect = new Rect(0,0, 30, 700 , "#000");
+    var text = new Text("Use as setas para mover o carro!",10,20, "#fff", 20, "Arial");
 }

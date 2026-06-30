@@ -63,6 +63,7 @@ ManagerScene.prototype.loadScenePersist =function (index) {
 }
 
 
+
 /**
  * Carrega o próximo level, seguindo a ordem do array de scenes
  * @method
@@ -72,6 +73,7 @@ ManagerScene.prototype.nextScene =function () {
     this.getCurrentScene().setObjects([]);
     this.getCurrentScene().startFunction();
 }
+
 
 /**
  * Carrega o level anterior, seguindo a ordem do array de scenes

@@ -96,7 +96,10 @@ GameObject.prototype.update = function() {
 GameObject.prototype.print = function() {
 
     if(this.animation != null) {
+        ctx.save();
+        ctx.globalAlpha = this.a;
         ctx.drawImage(this.animation[this.currentAnimation].getCurrentSprite(), this.x, this.y, this.w, this.h);
+        ctx.restore();
     }
 }
 
@@ -237,4 +240,26 @@ GameObject.prototype.translate = function(x, y) {
  */
 GameObject.prototype.moveMouse = function (x, y) {
 
+}
+
+
+/**
+ * Chama a função estipulado quando há o clique
+ * @method
+ */
+GameObject.prototype.click = function(){
+    if(this.clickFunction != undefined)
+        this.clickFunction();
+}
+
+/**
+ * Atribui uma função à função de clique do botão
+ * @method
+ * @param {function} fn - função de clique
+ */
+GameObject.prototype.setClick = function(fn){
+    if(fn != undefined){
+        this.clickable = true;
+        this.clickFunction = fn;
+    }
 }

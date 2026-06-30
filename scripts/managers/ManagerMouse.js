@@ -37,6 +37,14 @@ ManagerMouse.prototype.start = function () {
                 break;
             }
 
+        }else if ((element.clickable != undefined) && (element.clickable == true )) {
+                
+                if (y > element.y && y < element.y + element.h && x > element.x && x < element.x + element.w) {
+                    
+                    element.click();
+                    break;
+                }
+
         }
 
             if(i == objects.length-1){
