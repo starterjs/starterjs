@@ -43,3 +43,5 @@ function setMenu(){
     scratch2.wait(2);
     scratch2.sayForSeconds("Here you co-de with     javascript!", 2);
 }
+
+
